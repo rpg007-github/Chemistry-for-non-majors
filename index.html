@@ -1,676 +1,1148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>General Chemistry for Non-Majors — Essential Study Reference</title>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#f9f7f4;--bg-card:#fff;--text:#2c2c2c;--text-muted:#6b6b6b;--accent:#c0632a;--accent-dark:#9a4e1e;--accent-light:#fdf0e6;--border:#e0dbd4;--border-light:#f0ece6;--highlight:#fef8e6;--highlight-border:#e8c84a;--mnemonic-bg:#edf7ee;--mnemonic-border:#6bbd72;--formula-bg:#fdf0e6;--formula-border:#d4874a;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);--shadow-hover:0 2px 8px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.06)}
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
-    .hero{background:linear-gradient(135deg,#5c2d0e 0%,#c0632a 40%,#d4874a 100%);color:#fff;padding:4rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
-    .hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;letter-spacing:-.02em;position:relative}
-    .hero .subtitle{font-size:1.15rem;opacity:.85;margin-top:.5rem;font-weight:300;position:relative}
-    .hero .tagline{display:inline-block;margin-top:1rem;background:rgba(255,255,255,.15);padding:.35rem 1.2rem;border-radius:20px;font-size:.85rem;font-weight:500;letter-spacing:.03em;position:relative}
-    .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
-    .toc{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2.5rem;box-shadow:var(--shadow)}
-    .toc h2{font-family:'Crimson Pro',serif;font-size:1.5rem;color:var(--accent);margin-bottom:1rem;font-weight:600}
-    .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.5rem}
-    .toc-grid a{display:block;padding:.5rem .75rem;color:var(--text);text-decoration:none;border-radius:6px;font-size:.95rem;transition:all .2s}
-    .toc-grid a:hover{background:var(--accent-light);color:var(--accent)}
-    .toc-grid a .toc-num{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);margin-right:.5rem;font-weight:500}
-    .section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem 2rem 1.75rem;margin-bottom:2rem;box-shadow:var(--shadow);transition:box-shadow .3s,transform .3s}
-    .section-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
-    .section-card h2{font-family:'Crimson Pro',serif;font-size:1.6rem;color:var(--accent);margin-bottom:.25rem;font-weight:600;display:flex;align-items:center;gap:.6rem}
-    .section-card h2 .sec-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:var(--accent);color:#fff;padding:.15rem .55rem;border-radius:4px;font-weight:500}
-    .section-card h3{font-family:'Crimson Pro',serif;font-size:1.2rem;color:var(--accent-dark);margin:1.4rem 0 .5rem;font-weight:600}
-    .section-card p{margin-bottom:.8rem;line-height:1.75}
-    .fact-table{width:100%;border-collapse:collapse;margin:1rem 0 1.25rem;font-size:.92rem}
-    .fact-table th{background:var(--accent);color:#fff;padding:.6rem .8rem;text-align:left;font-weight:600;font-size:.85rem;letter-spacing:.03em}
-    .fact-table th:first-child{border-radius:6px 0 0 0}.fact-table th:last-child{border-radius:0 6px 0 0}
-    .fact-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border-light)}
-    .fact-table tr:nth-child(even) td{background:#faf8f5}
-    .fact-table tr:hover td{background:var(--accent-light)}
-    .fact-table code{font-family:'JetBrains Mono',monospace;font-size:.85rem;background:var(--formula-bg);padding:.1rem .4rem;border-radius:3px}
-    .formula-box{background:var(--formula-bg);border-left:4px solid var(--formula-border);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
-    .formula-box .formula-label{font-family:'Crimson Pro',serif;font-weight:600;color:var(--accent-dark);font-size:.9rem;margin-bottom:.3rem}
-    .formula-box code{font-family:'JetBrains Mono',monospace;font-size:.95rem;display:block;margin-top:.3rem}
-    .mnemonic-box{background:var(--mnemonic-bg);border-left:4px solid var(--mnemonic-border);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
-    .mnemonic-box .mnemonic-label{font-family:'Crimson Pro',serif;font-weight:600;color:#2d7a36;font-size:.9rem;margin-bottom:.3rem}
-    .highlight-box{background:var(--highlight);border-left:4px solid var(--highlight-border);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
-    .highlight-box strong{color:#8a6d0b}
-    .interactive-section{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2rem;box-shadow:var(--shadow)}
-    .interactive-section h2{font-family:'Crimson Pro',serif;font-size:1.6rem;color:var(--accent);margin-bottom:1rem;font-weight:600}
-    .quiz-progress{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;font-size:.9rem;color:var(--text-muted)}
-    .quiz-progress-bar{flex:1;height:8px;background:var(--border-light);border-radius:4px;overflow:hidden}
-    .quiz-progress-fill{height:100%;background:var(--accent);border-radius:4px;transition:width .4s;width:0}
-    .quiz-score{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--accent)}
-    .quiz-question p{font-weight:600;margin-bottom:.75rem;font-size:1.02rem}
-    .quiz-options label{display:block;padding:.65rem 1rem;margin-bottom:.4rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95rem}
-    .quiz-options label:hover{background:var(--accent-light);border-color:var(--accent)}
-    .quiz-options input[type="radio"]{margin-right:.6rem}
-    .quiz-options label.correct{background:#e8f5e9;border-color:#4caf50}
-    .quiz-options label.incorrect{background:#ffeef0;border-color:#e57373}
-    .quiz-explanation{margin-top:.75rem;padding:.75rem 1rem;background:#fdf5ec;border-radius:8px;font-size:.9rem;color:#555;display:none}
-    .quiz-btn{display:inline-block;padding:.6rem 1.5rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:.95rem;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-weight:500;transition:background .2s;margin-top:.5rem}
-    .quiz-btn:hover{background:var(--accent-dark)}
-    .quiz-nav{display:flex;gap:.75rem;margin-top:1rem}
-    .quiz-result{text-align:center;padding:2rem}
-    .quiz-result h3{font-family:'Crimson Pro',serif;font-size:1.8rem;color:var(--accent);margin-bottom:.5rem}
-    .fc-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
-    .fc-filter-btn{padding:.4rem 1rem;border:1px solid var(--border);background:#fff;border-radius:20px;font-size:.85rem;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all .2s}
-    .fc-filter-btn:hover{border-color:var(--accent);color:var(--accent)}
-    .fc-filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .fc-container{display:flex;flex-direction:column;align-items:center}
-    .fc-card-wrapper{width:100%;max-width:500px;height:300px;perspective:1200px;margin-bottom:1rem;cursor:pointer}
-    .fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s}
-    .fc-card.flipped{transform:rotateY(180deg)}
-    .fc-front,.fc-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem;text-align:center}
-    .fc-front{background:linear-gradient(135deg,var(--accent-light),#fce8d5);border:2px solid var(--accent)}
-    .fc-front .fc-category{position:absolute;top:1rem;left:1rem;font-size:.75rem;font-family:'JetBrains Mono',monospace;background:var(--accent);color:#fff;padding:.15rem .6rem;border-radius:4px}
-    .fc-front p{font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:600;color:var(--accent-dark)}
-    .fc-back{background:var(--accent);color:#fff;transform:rotateY(180deg)}
-    .fc-back p{font-size:1.05rem;line-height:1.6}
-    .fc-controls{display:flex;align-items:center;gap:1rem}
-    .fc-nav-btn{padding:.5rem 1.2rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:.9rem;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:background .2s}
-    .fc-nav-btn:hover{background:var(--accent-dark)}
-    .fc-counter{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--text-muted)}
-    .sa-question{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border-light)}.sa-question:last-child{border-bottom:none}
-    .sa-question p.sa-prompt{font-weight:600;margin-bottom:.75rem;font-size:1.02rem}
-    .sa-question textarea{width:100%;min-height:80px;padding:.75rem 1rem;border:1px solid var(--border);border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:.95rem;resize:vertical;transition:border-color .2s}
-    .sa-question textarea:focus{outline:none;border-color:var(--accent)}
-    .sa-feedback{margin-top:.75rem;display:none}
-    .sa-score-bar{height:10px;background:var(--border-light);border-radius:5px;overflow:hidden;margin-bottom:.6rem}
-    .sa-score-fill{height:100%;border-radius:5px;transition:width .5s}
-    .sa-score-text{font-family:'JetBrains Mono',monospace;font-size:.85rem;margin-bottom:.5rem}
-    .sa-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem}
-    .sa-tag{padding:.2rem .65rem;border-radius:4px;font-size:.8rem;font-weight:500}
-    .sa-tag.hit{background:#e8f5e9;color:#2e7d32}.sa-tag.miss{background:#f0f0f0;color:#888}
-    .sa-model-toggle{background:none;border:none;color:var(--accent);cursor:pointer;font-size:.9rem;font-family:'Source Sans 3',sans-serif;font-weight:500;padding:0}
-    .sa-model-toggle:hover{text-decoration:underline}
-    .sa-model-answer{margin-top:.5rem;padding:.75rem 1rem;background:#fdf5ec;border-radius:8px;font-size:.9rem;display:none;line-height:1.65}
-    .back-to-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--accent);color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);opacity:0;transition:opacity .3s;z-index:100}
-    .back-to-top.visible{opacity:1}
-    @media(max-width:768px){.container{padding:1.25rem 1rem 3rem}.section-card{padding:1.5rem}.toc-grid{grid-template-columns:1fr}.fact-table{font-size:.85rem}.fact-table th,.fact-table td{padding:.4rem .5rem}.fc-card-wrapper{height:260px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemistry for Non-Majors — Simple Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ee;
+    --card: #ffffff;
+    --text: #2a2a2a;
+    --muted: #6b6868;
+    --accent: #d4622a;
+    --accent-dark: #a94820;
+    --accent-light: #fdf0e8;
+    --green: #2e7d54;
+    --green-light: #eaf6ef;
+    --blue: #1a5c8c;
+    --blue-light: #e8f2fa;
+    --yellow-light: #fffbea;
+    --yellow-border: #f0c040;
+    --border: #e2ddd8;
+    --radius: 14px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:17px; }
+
+  /* HERO */
+  .hero { background: linear-gradient(140deg,#6b2a0e 0%,#d4622a 55%,#e8864a 100%); color:#fff; padding:3.5rem 1.5rem 3rem; text-align:center; }
+  .hero h1 { font-family:'Lora',serif; font-size:clamp(1.8rem,5vw,3rem); font-weight:700; letter-spacing:-0.01em; }
+  .hero .sub { font-size:1.1rem; opacity:0.88; margin-top:0.5rem; font-weight:600; }
+  .hero .badge { display:inline-block; margin-top:1rem; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); padding:0.35rem 1.2rem; border-radius:20px; font-size:0.88rem; font-weight:700; letter-spacing:0.04em; }
+
+  /* INTRO BANNER */
+  .intro-banner { background: var(--blue-light); border-left:5px solid var(--blue); border-radius:0 var(--radius) var(--radius) 0; padding:1rem 1.25rem; margin:1.75rem 0 0.5rem; font-size:0.97rem; color:#14406a; }
+  .intro-banner strong { font-size:1rem; }
+
+  /* CONTAINER */
+  .container { max-width:900px; margin:0 auto; padding:1.5rem 1.25rem 4rem; }
+
+  /* TOC */
+  .toc { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.75rem; margin-bottom:2rem; box-shadow:var(--shadow); }
+  .toc h2 { font-family:'Lora',serif; color:var(--accent); font-size:1.4rem; margin-bottom:1rem; }
+  .toc-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:0.4rem; }
+  .toc-list a { display:flex; align-items:center; gap:0.6rem; padding:0.55rem 0.75rem; text-decoration:none; color:var(--text); border-radius:8px; font-size:0.93rem; font-weight:600; transition:background 0.2s,color 0.2s; }
+  .toc-list a:hover { background:var(--accent-light); color:var(--accent); }
+  .toc-list a .num { background:var(--accent); color:#fff; font-size:0.72rem; padding:0.12rem 0.5rem; border-radius:5px; font-weight:700; }
+
+  /* SECTION CARD */
+  .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:2rem 1.75rem; margin-bottom:2rem; box-shadow:var(--shadow); }
+  .card h2 { font-family:'Lora',serif; color:var(--accent); font-size:1.55rem; font-weight:700; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }
+  .card h2 .snum { background:var(--accent); color:#fff; font-size:0.72rem; padding:0.15rem 0.55rem; border-radius:5px; font-weight:800; font-family:'Nunito',sans-serif; }
+  .card h3 { font-family:'Lora',serif; color:var(--accent-dark); font-size:1.15rem; font-weight:700; margin:1.5rem 0 0.6rem; }
+  .card p { margin-bottom:0.85rem; }
+
+  /* DEFINITION BOX (new!) */
+  .def { background:var(--blue-light); border-left:4px solid var(--blue); border-radius:0 10px 10px 0; padding:0.85rem 1.1rem; margin:0.85rem 0; }
+  .def .def-title { font-weight:800; color:var(--blue); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.2rem; }
+  .def p { margin:0; font-size:0.97rem; }
+
+  /* KEY POINT (callout) */
+  .key { background:var(--yellow-light); border-left:4px solid var(--yellow-border); border-radius:0 10px 10px 0; padding:0.85rem 1.1rem; margin:0.85rem 0; }
+  .key .key-title { font-weight:800; color:#7a5a00; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.25rem; }
+  .key p { margin:0; font-size:0.97rem; }
+
+  /* EXAMPLE BOX */
+  .eg { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 10px 10px 0; padding:0.85rem 1.1rem; margin:0.85rem 0; }
+  .eg .eg-title { font-weight:800; color:var(--green); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.25rem; }
+  .eg p { margin:0 0 0.4rem; font-size:0.97rem; }
+  .eg p:last-child { margin:0; }
+
+  /* FORMULA BOX */
+  .formula { background:var(--accent-light); border-left:4px solid var(--accent); border-radius:0 10px 10px 0; padding:0.85rem 1.1rem; margin:0.85rem 0; }
+  .formula .f-title { font-weight:800; color:var(--accent-dark); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem; }
+  .formula code { display:block; font-family:'Courier New',monospace; font-size:1rem; background:rgba(0,0,0,0.05); border-radius:6px; padding:0.4rem 0.7rem; margin:0.25rem 0; color:var(--accent-dark); font-weight:700; }
+  .formula .f-plain { font-size:0.96rem; color:#555; margin-top:0.35rem; }
+
+  /* TABLES */
+  table { width:100%; border-collapse:collapse; margin:1rem 0 1.25rem; font-size:0.93rem; }
+  th { background:var(--accent); color:#fff; padding:0.6rem 0.85rem; text-align:left; font-weight:700; font-size:0.85rem; }
+  th:first-child { border-radius:8px 0 0 0; } th:last-child { border-radius:0 8px 0 0; }
+  td { padding:0.55rem 0.85rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:nth-child(even) td { background:#faf8f5; }
+  tr:hover td { background:var(--accent-light); }
+
+  /* BIG TERM highlight inline */
+  .term { background:var(--accent-light); color:var(--accent-dark); font-weight:700; padding:0.05em 0.35em; border-radius:4px; }
+
+  /* INTERACTIVE SECTION */
+  .isec { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:2rem 1.75rem; margin-bottom:2rem; box-shadow:var(--shadow); }
+  .isec h2 { font-family:'Lora',serif; color:var(--accent); font-size:1.45rem; font-weight:700; margin-bottom:1.1rem; }
+
+  /* QUIZ */
+  .qprog { display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem; font-size:0.9rem; color:var(--muted); }
+  .qbar-wrap { flex:1; height:9px; background:var(--border); border-radius:5px; overflow:hidden; }
+  .qbar-fill { height:100%; background:var(--accent); border-radius:5px; transition:width 0.4s; width:0; }
+  .qscore { font-weight:800; color:var(--accent); }
+  .qquestion p { font-weight:700; margin-bottom:0.75rem; font-size:1.02rem; }
+  .qoptions label { display:block; padding:0.7rem 1rem; margin-bottom:0.45rem; border:2px solid var(--border); border-radius:10px; cursor:pointer; transition:all 0.18s; font-size:0.96rem; font-weight:600; }
+  .qoptions label:hover { background:var(--accent-light); border-color:var(--accent); }
+  .qoptions label.correct { background:#e4f5eb; border-color:#3da05e; }
+  .qoptions label.incorrect { background:#fdecea; border-color:#d9534f; }
+  .qexp { margin-top:0.75rem; padding:0.8rem 1rem; background:var(--yellow-light); border-radius:10px; font-size:0.93rem; display:none; border-left:3px solid var(--yellow-border); }
+  .qbtn { display:inline-block; padding:0.6rem 1.6rem; background:var(--accent); color:#fff; border:none; border-radius:9px; font-size:0.96rem; cursor:pointer; font-family:'Nunito',sans-serif; font-weight:700; transition:background 0.2s; margin-top:0.5rem; }
+  .qbtn:hover { background:var(--accent-dark); }
+  .qnav { display:flex; gap:0.75rem; margin-top:1rem; }
+  .qresult { text-align:center; padding:2.5rem 1rem; }
+  .qresult h3 { font-family:'Lora',serif; font-size:2rem; color:var(--accent); margin-bottom:0.5rem; }
+
+  /* FLASHCARDS */
+  .fc-filters { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem; }
+  .fc-btn { padding:0.4rem 1rem; border:2px solid var(--border); background:#fff; border-radius:20px; font-size:0.85rem; cursor:pointer; font-family:'Nunito',sans-serif; font-weight:700; transition:all 0.2s; }
+  .fc-btn:hover, .fc-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .fc-wrap { width:100%; max-width:520px; height:280px; perspective:1200px; margin:0 auto 1rem; cursor:pointer; }
+  .fc-card { width:100%; height:100%; position:relative; transform-style:preserve-3d; transition:transform 0.55s; }
+  .fc-card.flipped { transform:rotateY(180deg); }
+  .fc-front, .fc-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:14px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:1.75rem; text-align:center; }
+  .fc-front { background:linear-gradient(135deg,#fdf0e8,#fce4cc); border:2px solid var(--accent); }
+  .fc-front .fcat { position:absolute; top:1rem; left:1rem; background:var(--accent); color:#fff; font-size:0.72rem; font-weight:800; padding:0.15rem 0.6rem; border-radius:5px; }
+  .fc-front .fhint { position:absolute; bottom:0.9rem; right:1rem; font-size:0.78rem; color:var(--muted); font-weight:600; }
+  .fc-front p { font-family:'Lora',serif; font-size:1.2rem; font-weight:600; color:var(--accent-dark); line-height:1.5; }
+  .fc-back { background:var(--accent); color:#fff; transform:rotateY(180deg); }
+  .fc-back p { font-size:1rem; line-height:1.65; font-weight:600; }
+  .fc-ctrls { display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:0.25rem; }
+  .fc-nav { padding:0.5rem 1.25rem; background:var(--accent); color:#fff; border:none; border-radius:9px; font-size:0.9rem; cursor:pointer; font-family:'Nunito',sans-serif; font-weight:700; transition:background 0.2s; }
+  .fc-nav:hover { background:var(--accent-dark); }
+  .fc-ct { font-size:0.92rem; color:var(--muted); font-weight:700; }
+
+  /* SHORT ANSWER */
+  .sa-q { margin-bottom:2rem; padding-bottom:1.75rem; border-bottom:1px solid var(--border); }
+  .sa-q:last-child { border-bottom:none; }
+  .sa-q p.prompt { font-weight:700; margin-bottom:0.75rem; font-size:1.02rem; }
+  .sa-q textarea { width:100%; min-height:85px; padding:0.75rem 1rem; border:2px solid var(--border); border-radius:10px; font-family:'Nunito',sans-serif; font-size:0.96rem; resize:vertical; transition:border 0.2s; }
+  .sa-q textarea:focus { outline:none; border-color:var(--accent); }
+  .sa-fb { margin-top:0.75rem; display:none; }
+  .sa-bar-wrap { height:10px; background:var(--border); border-radius:5px; overflow:hidden; margin-bottom:0.6rem; }
+  .sa-bar-fill { height:100%; border-radius:5px; transition:width 0.5s; }
+  .sa-pct { font-weight:800; font-size:0.88rem; margin-bottom:0.5rem; }
+  .sa-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.75rem; }
+  .sa-tag { padding:0.2rem 0.7rem; border-radius:5px; font-size:0.8rem; font-weight:700; }
+  .sa-tag.hit { background:#e4f5eb; color:#2e7d36; }
+  .sa-tag.miss { background:#f0f0f0; color:#888; }
+  .sa-toggle { background:none; border:none; color:var(--accent); cursor:pointer; font-size:0.9rem; font-family:'Nunito',sans-serif; font-weight:700; padding:0; }
+  .sa-toggle:hover { text-decoration:underline; }
+  .sa-model { margin-top:0.5rem; padding:0.85rem 1rem; background:var(--yellow-light); border-radius:10px; font-size:0.93rem; display:none; line-height:1.7; border-left:3px solid var(--yellow-border); }
+
+  /* BACK TO TOP */
+  .btt { position:fixed; bottom:1.75rem; right:1.75rem; width:46px; height:46px; background:var(--accent); color:#fff; border:none; border-radius:50%; font-size:1.3rem; cursor:pointer; box-shadow:0 3px 10px rgba(0,0,0,0.22); opacity:0; transition:opacity 0.3s; z-index:100; font-weight:900; }
+  .btt.visible { opacity:1; }
+
+  @media(max-width:680px) {
+    .card { padding:1.4rem 1.1rem; }
+    .isec { padding:1.4rem 1.1rem; }
+    .toc-list { grid-template-columns:1fr; }
+    table { font-size:0.84rem; }
+    td, th { padding:0.4rem 0.55rem; }
+  }
+</style>
 </head>
 <body>
 
 <div class="hero">
   <h1>Chemistry for Non-Majors</h1>
-  <div class="subtitle">Essential Study Reference</div>
-  <div class="tagline">The facts you just know</div>
+  <div class="sub">Plain-Language Study Guide</div>
+  <div class="badge">Every term defined. Lots of examples. No chemistry background needed.</div>
 </div>
 
 <div class="container">
 
-<div class="toc">
-  <h2>Table of Contents</h2>
-  <div class="toc-grid">
-    <a href="#matter"><span class="toc-num">01</span>Matter, Measurement &amp; Energy</a>
-    <a href="#atoms"><span class="toc-num">02</span>Atomic Structure</a>
-    <a href="#periodic"><span class="toc-num">03</span>The Periodic Table &amp; Trends</a>
-    <a href="#bonding"><span class="toc-num">04</span>Chemical Bonding</a>
-    <a href="#naming"><span class="toc-num">05</span>Nomenclature</a>
-    <a href="#reactions"><span class="toc-num">06</span>Chemical Reactions &amp; Equations</a>
-    <a href="#stoich"><span class="toc-num">07</span>The Mole &amp; Stoichiometry</a>
-    <a href="#gases"><span class="toc-num">08</span>Gases</a>
-    <a href="#solutions"><span class="toc-num">09</span>Solutions &amp; Concentration</a>
-    <a href="#acids"><span class="toc-num">10</span>Acids, Bases &amp; pH</a>
-    <a href="#nuclear"><span class="toc-num">11</span>Nuclear Chemistry</a>
-    <a href="#quiz"><span class="toc-num">Q</span>Multiple Choice Quiz</a>
-    <a href="#flashcards"><span class="toc-num">F</span>Flashcards</a>
-    <a href="#short-answer"><span class="toc-num">SA</span>Short Answer Practice</a>
+  <div class="intro-banner">
+    <strong>How to use this guide:</strong> Every section starts with plain definitions before anything else. Look for the colored boxes — <span style="font-weight:700;color:#14406a;">blue = definition</span>, <span style="font-weight:700;color:#7a5a00;">yellow = key point to memorize</span>, <span style="font-weight:700;color:#2e7d54;">green = real-world example</span>, <span style="font-weight:700;color:var(--accent-dark);">orange = formula</span>.
   </div>
-</div>
 
-<!-- ============ 01 ============ -->
-<div class="section-card" id="matter">
-  <h2><span class="sec-num">01</span>Matter, Measurement &amp; Energy</h2>
-  <p>Matter is anything that has mass and takes up space. It exists in three common states: solid (definite shape and volume), liquid (definite volume, takes shape of container), and gas (fills entire container, no definite shape or volume). All changes in matter involve energy, which is the ability to do work or produce heat.</p>
-  <h3>Classification of Matter</h3>
-  <table class="fact-table">
-    <tr><th>Category</th><th>Definition</th><th>Examples</th></tr>
-    <tr><td>Element</td><td>Pure substance made of one type of atom; cannot be broken down further</td><td>O, Fe, Au, C</td></tr>
-    <tr><td>Compound</td><td>Pure substance made of two or more elements in a fixed ratio, chemically bonded</td><td>H&#8322;O, NaCl, CO&#8322;</td></tr>
-    <tr><td>Homogeneous mixture</td><td>Uniform composition throughout (solution)</td><td>Saltwater, air, brass</td></tr>
-    <tr><td>Heterogeneous mixture</td><td>Non-uniform; distinct regions visible</td><td>Salad, sand + water, granite</td></tr>
-  </table>
-  <h3>Physical vs. Chemical Properties &amp; Changes</h3>
-  <table class="fact-table">
-    <tr><th>Type</th><th>Definition</th><th>Examples</th></tr>
-    <tr><td>Physical property</td><td>Observed without changing the substance's identity</td><td>Color, boiling point, density, mass</td></tr>
-    <tr><td>Chemical property</td><td>Describes how a substance reacts or changes into a new substance</td><td>Flammability, reactivity with acid, rusting</td></tr>
-    <tr><td>Physical change</td><td>Appearance changes but identity stays the same</td><td>Melting ice, dissolving sugar, cutting paper</td></tr>
-    <tr><td>Chemical change</td><td>New substance(s) formed; usually irreversible</td><td>Burning, rusting, cooking an egg</td></tr>
-  </table>
-  <div class="highlight-box">
-    <strong>Signs of a chemical change:</strong> color change, gas production (bubbles), precipitate formation, temperature change, light or odor produced.
+  <!-- TOC -->
+  <div class="toc">
+    <h2>What's in this guide?</h2>
+    <div class="toc-list">
+      <a href="#matter"><span class="num">01</span> Matter &amp; Energy</a>
+      <a href="#atoms"><span class="num">02</span> Atoms</a>
+      <a href="#periodic"><span class="num">03</span> The Periodic Table</a>
+      <a href="#bonding"><span class="num">04</span> Chemical Bonding</a>
+      <a href="#naming"><span class="num">05</span> Naming Compounds</a>
+      <a href="#reactions"><span class="num">06</span> Chemical Reactions</a>
+      <a href="#stoich"><span class="num">07</span> The Mole &amp; Stoichiometry</a>
+      <a href="#gases"><span class="num">08</span> Gases</a>
+      <a href="#solutions"><span class="num">09</span> Solutions</a>
+      <a href="#acids"><span class="num">10</span> Acids, Bases &amp; pH</a>
+      <a href="#nuclear"><span class="num">11</span> Nuclear Chemistry</a>
+      <a href="#quiz"><span class="num">Q</span> Practice Quiz</a>
+      <a href="#flashcards"><span class="num">F</span> Flashcards</a>
+      <a href="#sa"><span class="num">SA</span> Short Answer</a>
+    </div>
   </div>
-  <h3>Energy Basics</h3>
-  <p>Kinetic energy is the energy of motion. Potential energy is stored energy (chemical bonds, position, etc.). Energy is always conserved (law of conservation of energy): it can change forms but cannot be created or destroyed. Exothermic reactions release heat to the surroundings. Endothermic reactions absorb heat from the surroundings.</p>
-  <div class="formula-box">
-    <div class="formula-label">Temperature Conversions</div>
-    <code>&deg;C = (&deg;F - 32) &times; 5/9</code>
-    <br><code>K = &deg;C + 273</code>
-    <br><br>Water freezes at 0&deg;C / 32&deg;F / 273 K. Water boils at 100&deg;C / 212&deg;F / 373 K. Absolute zero = 0 K.
-  </div>
-  <div class="formula-box">
-    <div class="formula-label">Density</div>
-    <code>D = m / V</code>
-    <br>Units: g/mL or g/cm&sup3;. Water density = 1.00 g/mL. Objects denser than water sink.
-  </div>
-</div>
 
-<!-- ============ 02 ============ -->
-<div class="section-card" id="atoms">
-  <h2><span class="sec-num">02</span>Atomic Structure</h2>
-  <p>All matter is composed of atoms. An atom is the smallest unit of an element that retains the chemical properties of that element. Atoms are made of three subatomic particles.</p>
-  <table class="fact-table">
-    <tr><th>Particle</th><th>Charge</th><th>Location</th><th>Mass (amu)</th></tr>
-    <tr><td>Proton (p+)</td><td>+1</td><td>Nucleus</td><td>~1</td></tr>
-    <tr><td>Neutron (n)</td><td>0</td><td>Nucleus</td><td>~1</td></tr>
-    <tr><td>Electron (e-)</td><td>-1</td><td>Electron cloud (orbitals)</td><td>~0 (1/1836 amu)</td></tr>
-  </table>
-  <div class="formula-box">
-    <div class="formula-label">Key Relationships</div>
-    <code>Atomic number (Z) = number of protons = identifies the element</code>
-    <br><code>Mass number (A) = protons + neutrons</code>
-    <br><code>Neutrons = mass number - atomic number</code>
-    <br><code>In a neutral atom: protons = electrons</code>
-  </div>
-  <h3>Isotopes &amp; Atomic Mass</h3>
-  <p>Isotopes are atoms of the same element with different numbers of neutrons (same Z, different A). For example, carbon-12 has 6 neutrons and carbon-14 has 8 neutrons. The atomic mass on the periodic table is a weighted average of all naturally occurring isotopes.</p>
-  <h3>Electron Configuration (Simplified)</h3>
-  <p>Electrons fill energy levels (shells) around the nucleus. The first shell holds up to 2 electrons, the second holds up to 8, the third holds up to 18 (but fills to 8 first in most introductory contexts). Valence electrons are the electrons in the outermost shell and are responsible for bonding and chemical behavior.</p>
-  <div class="mnemonic-box">
-    <div class="mnemonic-label">Remember</div>
-    <strong>The number of valence electrons for main-group elements equals the group number</strong> (using the 1A-8A system). Group 1A has 1 valence electron, Group 7A has 7, Group 8A (noble gases) has 8 (full shell).
-  </div>
-  <h3>Ions</h3>
-  <p>An ion is an atom that has gained or lost electrons. Metals tend to lose electrons and form cations (positive charge). Nonmetals tend to gain electrons and form anions (negative charge). Ions form to achieve a stable, noble-gas electron configuration (octet).</p>
-</div>
+  <!-- ====== 01 MATTER ====== -->
+  <div class="card" id="matter">
+    <h2><span class="snum">01</span> Matter &amp; Energy — What Everything Is Made Of</h2>
 
-<!-- ============ 03 ============ -->
-<div class="section-card" id="periodic">
-  <h2><span class="sec-num">03</span>The Periodic Table &amp; Trends</h2>
-  <p>The periodic table arranges elements by increasing atomic number. Rows are called periods and columns are called groups (families). Elements in the same group share similar chemical properties because they have the same number of valence electrons.</p>
-  <h3>Regions of the Periodic Table</h3>
-  <table class="fact-table">
-    <tr><th>Region</th><th>Location</th><th>Properties</th></tr>
-    <tr><td>Metals</td><td>Left and center</td><td>Shiny, conduct heat/electricity, malleable, ductile, lose electrons</td></tr>
-    <tr><td>Nonmetals</td><td>Upper right</td><td>Dull, poor conductors, brittle (if solid), gain or share electrons</td></tr>
-    <tr><td>Metalloids</td><td>Along the staircase line</td><td>Properties of both metals and nonmetals; semiconductors (Si, Ge)</td></tr>
-  </table>
-  <h3>Important Families</h3>
-  <table class="fact-table">
-    <tr><th>Group</th><th>Name</th><th>Valence e-</th><th>Key Facts</th></tr>
-    <tr><td>1A (1)</td><td>Alkali metals</td><td>1</td><td>Very reactive, form +1 ions, soft, react with water</td></tr>
-    <tr><td>2A (2)</td><td>Alkaline earth metals</td><td>2</td><td>Reactive, form +2 ions, harder than Group 1A</td></tr>
-    <tr><td>7A (17)</td><td>Halogens</td><td>7</td><td>Very reactive nonmetals, form -1 ions, diatomic (F&#8322;, Cl&#8322;, Br&#8322;, I&#8322;)</td></tr>
-    <tr><td>8A (18)</td><td>Noble gases</td><td>8 (2 for He)</td><td>Full outer shell, extremely unreactive</td></tr>
-  </table>
-  <h3>Periodic Trends</h3>
-  <table class="fact-table">
-    <tr><th>Property</th><th>Across a Period (&rarr;)</th><th>Down a Group (&darr;)</th><th>Why</th></tr>
-    <tr><td>Atomic radius</td><td>Decreases</td><td>Increases</td><td>More protons pull electrons in (&rarr;); more shells added (&darr;)</td></tr>
-    <tr><td>Ionization energy</td><td>Increases</td><td>Decreases</td><td>Harder to remove electrons from smaller, tighter atoms</td></tr>
-    <tr><td>Electronegativity</td><td>Increases</td><td>Decreases</td><td>Smaller atoms attract bonding electrons more strongly</td></tr>
-    <tr><td>Metallic character</td><td>Decreases</td><td>Increases</td><td>Metals lose electrons easily; easier when atom is larger</td></tr>
-  </table>
-  <div class="mnemonic-box">
-    <div class="mnemonic-label">Diatomic Elements</div>
-    <strong>HOFBrINCl</strong> (pronounced "Hoff-brinkle"). These seven elements exist naturally as diatomic molecules: H&#8322;, O&#8322;, F&#8322;, Br&#8322;, I&#8322;, N&#8322;, Cl&#8322;.
-  </div>
-</div>
+    <div class="def">
+      <div class="def-title">Definition: Matter</div>
+      <p><strong>Matter</strong> is anything that has mass (weight) and takes up space. Your phone, a glass of water, the air you breathe — all matter. The only things that are NOT matter are pure energy forms like light or heat.</p>
+    </div>
 
-<!-- ============ 04 ============ -->
-<div class="section-card" id="bonding">
-  <h2><span class="sec-num">04</span>Chemical Bonding</h2>
-  <p>Atoms bond to achieve a stable, full outer electron shell (octet rule: 8 electrons for most, 2 for hydrogen). The type of bond depends on whether electrons are transferred or shared.</p>
-  <table class="fact-table">
-    <tr><th>Bond Type</th><th>Between</th><th>What Happens</th><th>Example</th></tr>
-    <tr><td>Ionic</td><td>Metal + nonmetal</td><td>Electrons transferred; ions attract</td><td>NaCl (Na+ and Cl-)</td></tr>
-    <tr><td>Covalent</td><td>Nonmetal + nonmetal</td><td>Electrons shared between atoms</td><td>H&#8322;O, CO&#8322;, CH&#8324;</td></tr>
-    <tr><td>Metallic</td><td>Metal + metal</td><td>Electrons delocalized in a "sea"</td><td>Cu wire, Fe nail</td></tr>
-  </table>
-  <h3>Ionic vs. Covalent Properties</h3>
-  <table class="fact-table">
-    <tr><th>Property</th><th>Ionic Compounds</th><th>Covalent (Molecular) Compounds</th></tr>
-    <tr><td>State at room temp</td><td>Solid (crystalline)</td><td>Gas, liquid, or soft solid</td></tr>
-    <tr><td>Melting/boiling point</td><td>High</td><td>Low</td></tr>
-    <tr><td>Conductivity (dissolved/melted)</td><td>Yes (free ions)</td><td>No (no ions)</td></tr>
-    <tr><td>Solubility in water</td><td>Often soluble</td><td>Varies</td></tr>
-  </table>
-  <h3>Polar vs. Nonpolar Covalent Bonds</h3>
-  <p>When two atoms share electrons equally, the bond is nonpolar covalent (same atom or very similar electronegativity, like H&#8322; or O&#8322;). When electrons are shared unequally (one atom is more electronegative), the bond is polar covalent (like H-O in water). The greater the electronegativity difference, the more polar the bond. Very large differences (&gt;1.7) typically indicate ionic bonding.</p>
-  <h3>Lewis Dot Structures</h3>
-  <p>Lewis dot structures show valence electrons as dots around an element symbol. In a molecule, shared pairs form bonds (lines) and unshared pairs are lone pairs. The total number of valence electrons in the structure must equal the sum from all atoms. Hydrogen always forms 1 bond, oxygen typically forms 2, nitrogen 3, and carbon 4.</p>
-  <h3>Molecular Shape (VSEPR Basics)</h3>
-  <table class="fact-table">
-    <tr><th>Electron Groups</th><th>Bonded Atoms</th><th>Lone Pairs</th><th>Shape</th><th>Example</th></tr>
-    <tr><td>2</td><td>2</td><td>0</td><td>Linear</td><td>CO&#8322;</td></tr>
-    <tr><td>3</td><td>3</td><td>0</td><td>Trigonal planar</td><td>BF&#8323;</td></tr>
-    <tr><td>3</td><td>2</td><td>1</td><td>Bent</td><td>SO&#8322;</td></tr>
-    <tr><td>4</td><td>4</td><td>0</td><td>Tetrahedral</td><td>CH&#8324;</td></tr>
-    <tr><td>4</td><td>3</td><td>1</td><td>Trigonal pyramidal</td><td>NH&#8323;</td></tr>
-    <tr><td>4</td><td>2</td><td>2</td><td>Bent</td><td>H&#8322;O</td></tr>
-  </table>
-</div>
+    <p>Matter can exist in three common <span class="term">states</span>:</p>
+    <table>
+      <tr><th>State</th><th>Shape</th><th>Volume</th><th>Everyday Example</th></tr>
+      <tr><td><strong>Solid</strong></td><td>Fixed (keeps its shape)</td><td>Fixed (same size)</td><td>Ice cube, rock, wooden table</td></tr>
+      <tr><td><strong>Liquid</strong></td><td>Takes shape of container</td><td>Fixed (same amount)</td><td>Water in a glass, milk, juice</td></tr>
+      <tr><td><strong>Gas</strong></td><td>Fills entire container</td><td>Expands to fill space</td><td>Steam, air in a tire, helium in a balloon</td></tr>
+    </table>
 
-<!-- ============ 05 ============ -->
-<div class="section-card" id="naming">
-  <h2><span class="sec-num">05</span>Nomenclature</h2>
-  <p>Naming chemical compounds follows different rules depending on whether the compound is ionic or covalent.</p>
-  <h3>Ionic Compounds (Metal + Nonmetal)</h3>
-  <p>Name the metal first (cation), then the nonmetal with an "-ide" ending (anion). If the metal can have multiple charges (transition metals), use a Roman numeral to indicate the charge. Examples: NaCl = sodium chloride, FeCl&#8322; = iron(II) chloride, FeCl&#8323; = iron(III) chloride.</p>
-  <h3>Covalent Compounds (Nonmetal + Nonmetal)</h3>
-  <p>Use Greek prefixes to indicate the number of each atom. The first element does not get a prefix if there is only one of it. The second element always gets an "-ide" ending. Examples: CO&#8322; = carbon dioxide, N&#8322;O&#8324; = dinitrogen tetroxide, PCl&#8323; = phosphorus trichloride.</p>
-  <table class="fact-table">
-    <tr><th>Prefix</th><th>Number</th></tr>
-    <tr><td>mono-</td><td>1</td></tr>
-    <tr><td>di-</td><td>2</td></tr>
-    <tr><td>tri-</td><td>3</td></tr>
-    <tr><td>tetra-</td><td>4</td></tr>
-    <tr><td>penta-</td><td>5</td></tr>
-    <tr><td>hexa-</td><td>6</td></tr>
-  </table>
-  <h3>Common Polyatomic Ions to Memorize</h3>
-  <table class="fact-table">
-    <tr><th>Ion</th><th>Name</th><th>Ion</th><th>Name</th></tr>
-    <tr><td>NH&#8324;&#8314;</td><td>Ammonium</td><td>OH&#8315;</td><td>Hydroxide</td></tr>
-    <tr><td>NO&#8323;&#8315;</td><td>Nitrate</td><td>CO&#8323;&sup2;&#8315;</td><td>Carbonate</td></tr>
-    <tr><td>SO&#8324;&sup2;&#8315;</td><td>Sulfate</td><td>PO&#8324;&sup3;&#8315;</td><td>Phosphate</td></tr>
-    <tr><td>HCO&#8323;&#8315;</td><td>Bicarbonate</td><td>ClO&#8323;&#8315;</td><td>Chlorate</td></tr>
-    <tr><td>C&#8322;H&#8323;O&#8322;&#8315;</td><td>Acetate</td><td>MnO&#8324;&#8315;</td><td>Permanganate</td></tr>
-  </table>
-  <h3>Acids</h3>
-  <p>Binary acids (H + one nonmetal): "hydro-" + root + "-ic acid" (HCl = hydrochloric acid). Oxyacids (H + polyatomic ion with oxygen): if the ion ends in "-ate," the acid ends in "-ic acid" (H&#8322;SO&#8324; = sulfuric acid). If the ion ends in "-ite," the acid ends in "-ous acid" (H&#8322;SO&#8323; = sulfurous acid).</p>
-</div>
+    <h3>Classifying Matter: What type of stuff is it?</h3>
 
-<!-- ============ 06 ============ -->
-<div class="section-card" id="reactions">
-  <h2><span class="sec-num">06</span>Chemical Reactions &amp; Equations</h2>
-  <p>A chemical equation represents a chemical reaction using formulas. Reactants are on the left of the arrow, products are on the right. Equations must be balanced so that the number of atoms of each element is the same on both sides (law of conservation of mass).</p>
-  <div class="highlight-box">
-    <strong>Balancing tip:</strong> Adjust coefficients (the numbers in front of formulas), never subscripts. Balance metals first, then nonmetals, then hydrogen, then oxygen last.
-  </div>
-  <h3>Five Major Reaction Types</h3>
-  <table class="fact-table">
-    <tr><th>Type</th><th>General Form</th><th>Example</th></tr>
-    <tr><td>Synthesis (combination)</td><td>A + B &rarr; AB</td><td>2Na + Cl&#8322; &rarr; 2NaCl</td></tr>
-    <tr><td>Decomposition</td><td>AB &rarr; A + B</td><td>2H&#8322;O &rarr; 2H&#8322; + O&#8322;</td></tr>
-    <tr><td>Single replacement</td><td>A + BC &rarr; AC + B</td><td>Zn + CuSO&#8324; &rarr; ZnSO&#8324; + Cu</td></tr>
-    <tr><td>Double replacement</td><td>AB + CD &rarr; AD + CB</td><td>AgNO&#8323; + NaCl &rarr; AgCl + NaNO&#8323;</td></tr>
-    <tr><td>Combustion</td><td>Fuel + O&#8322; &rarr; CO&#8322; + H&#8322;O</td><td>CH&#8324; + 2O&#8322; &rarr; CO&#8322; + 2H&#8322;O</td></tr>
-  </table>
-  <div class="mnemonic-box">
-    <div class="mnemonic-label">Activity Series Shortcut</div>
-    In single replacement, the free element must be more reactive than the element it replaces. Metals higher on the activity series replace metals lower on the series. If a metal is below hydrogen in the activity series, it cannot replace hydrogen from acids.
-  </div>
-  <h3>Exothermic vs. Endothermic</h3>
-  <p>Exothermic reactions release energy (feel hot, products are more stable). Endothermic reactions absorb energy (feel cold, products are less stable). Combustion is always exothermic. Photosynthesis is endothermic. Melting ice is endothermic.</p>
-</div>
+    <div class="def">
+      <div class="def-title">Definition: Element</div>
+      <p>A pure substance made of <strong>only one type of atom</strong>. It cannot be broken down into simpler substances by chemical means. There are 118 known elements (hydrogen, gold, oxygen, carbon, etc.).</p>
+    </div>
 
-<!-- ============ 07 ============ -->
-<div class="section-card" id="stoich">
-  <h2><span class="sec-num">07</span>The Mole &amp; Stoichiometry</h2>
-  <p>The mole is the chemist's counting unit. One mole of anything contains 6.022 &times; 10&sup2;&sup3; particles (Avogadro's number). The molar mass of an element (in g/mol) is numerically equal to its atomic mass on the periodic table. The molar mass of a compound is the sum of the molar masses of all atoms in the formula.</p>
-  <div class="formula-box">
-    <div class="formula-label">Core Mole Conversions</div>
-    <code>moles = grams / molar mass</code>
-    <br><code>grams = moles &times; molar mass</code>
-    <br><code>particles = moles &times; 6.022 &times; 10&sup2;&sup3;</code>
-  </div>
-  <h3>Stoichiometry</h3>
-  <p>Stoichiometry uses a balanced equation to convert between moles (or grams) of one substance and moles (or grams) of another. The coefficients in the balanced equation give the mole ratios. The general approach is: grams of A &rarr; moles of A &rarr; mole ratio &rarr; moles of B &rarr; grams of B.</p>
-  <div class="highlight-box">
-    <strong>Limiting reagent:</strong> the reactant that runs out first and determines how much product can be made. The other reactant is in excess. To find the limiting reagent, convert each reactant to moles of product and see which gives less.
-  </div>
-  <div class="formula-box">
-    <div class="formula-label">Percent Yield</div>
-    <code>% yield = (actual yield / theoretical yield) &times; 100</code>
-    <br>Theoretical yield is calculated from stoichiometry. Actual yield is measured in the lab. Percent yield is always &le; 100%.
-  </div>
-</div>
+    <div class="def">
+      <div class="def-title">Definition: Compound</div>
+      <p>A pure substance made of <strong>two or more elements chemically bonded together in a fixed ratio</strong>. Water is always 2 hydrogen atoms + 1 oxygen atom — never more, never less.</p>
+    </div>
 
-<!-- ============ 08 ============ -->
-<div class="section-card" id="gases">
-  <h2><span class="sec-num">08</span>Gases</h2>
-  <p>Gases have no definite shape or volume and are easily compressed. Gas behavior is described by several laws relating pressure (P), volume (V), temperature (T), and amount (n).</p>
-  <table class="fact-table">
-    <tr><th>Law</th><th>Relationship</th><th>Constant</th><th>Equation</th></tr>
-    <tr><td>Boyle's</td><td>P and V are inversely proportional</td><td>T, n</td><td><code>P&#8321;V&#8321; = P&#8322;V&#8322;</code></td></tr>
-    <tr><td>Charles's</td><td>V and T are directly proportional</td><td>P, n</td><td><code>V&#8321;/T&#8321; = V&#8322;/T&#8322;</code></td></tr>
-    <tr><td>Gay-Lussac's</td><td>P and T are directly proportional</td><td>V, n</td><td><code>P&#8321;/T&#8321; = P&#8322;/T&#8322;</code></td></tr>
-    <tr><td>Avogadro's</td><td>V and n are directly proportional</td><td>P, T</td><td><code>V&#8321;/n&#8321; = V&#8322;/n&#8322;</code></td></tr>
-  </table>
-  <div class="formula-box">
-    <div class="formula-label">Ideal Gas Law</div>
-    <code>PV = nRT</code>
-    <br><br>R = 0.0821 L&middot;atm/mol&middot;K. Temperature must always be in Kelvin (K = &deg;C + 273). At STP (0&deg;C, 1 atm), 1 mole of any gas occupies 22.4 L.
-  </div>
-  <div class="mnemonic-box">
-    <div class="mnemonic-label">Remember</div>
-    <strong>Boyle's: pressure goes up, volume goes down</strong> (squeeze a balloon). <strong>Charles's: heat it, it expands</strong> (hot air balloon). <strong>Gas law problems always use Kelvin for temperature.</strong>
-  </div>
-</div>
+    <div class="def">
+      <div class="def-title">Definition: Mixture</div>
+      <p>Two or more substances <strong>physically combined</strong> (not chemically bonded). You can usually separate them without a chemical reaction. Mixtures can vary in their composition.</p>
+    </div>
 
-<!-- ============ 09 ============ -->
-<div class="section-card" id="solutions">
-  <h2><span class="sec-num">09</span>Solutions &amp; Concentration</h2>
-  <p>A solution is a homogeneous mixture of a solute (the substance dissolved) and a solvent (the substance doing the dissolving, usually water). Concentration describes how much solute is dissolved in a given amount of solution.</p>
-  <div class="formula-box">
-    <div class="formula-label">Molarity</div>
-    <code>M = moles of solute / liters of solution</code>
-    <br>Units: mol/L (M). The most common way to express concentration in chemistry.
-  </div>
-  <div class="formula-box">
-    <div class="formula-label">Dilution</div>
-    <code>M&#8321;V&#8321; = M&#8322;V&#8322;</code>
-    <br>Use this when diluting a concentrated solution with solvent. The moles of solute stay the same.
-  </div>
-  <h3>Solubility Factors</h3>
-  <p>"Like dissolves like" is the key rule. Polar solutes dissolve in polar solvents (sugar in water). Nonpolar solutes dissolve in nonpolar solvents (oil in hexane). Increasing temperature generally increases solubility of solids in liquids but decreases solubility of gases. Increasing pressure increases gas solubility (Henry's law).</p>
-  <h3>Electrolytes</h3>
-  <p>A strong electrolyte dissociates completely in water and conducts electricity well (NaCl, HCl, NaOH). A weak electrolyte only partially dissociates (acetic acid, ammonia). A nonelectrolyte does not dissociate at all (sugar, ethanol).</p>
-</div>
+    <eg class="eg">
+      <div class="eg-title">Real-World Examples</div>
+      <p><strong>Element:</strong> Pure gold jewelry (only gold atoms), oxygen gas you breathe (only oxygen atoms)</p>
+      <p><strong>Compound:</strong> Table salt (sodium + chlorine, always 1:1), water (hydrogen + oxygen, always 2:1)</p>
+      <p><strong>Homogeneous mixture</strong> (uniform throughout): Saltwater, air, black coffee — looks the same everywhere</p>
+      <p><strong>Heterogeneous mixture</strong> (not uniform): Italian salad dressing (oil + water layers you can see), trail mix, a bowl of cereal</p>
+    </eg>
 
-<!-- ============ 10 ============ -->
-<div class="section-card" id="acids">
-  <h2><span class="sec-num">10</span>Acids, Bases &amp; pH</h2>
-  <h3>Definitions</h3>
-  <table class="fact-table">
-    <tr><th>Model</th><th>Acid</th><th>Base</th></tr>
-    <tr><td>Arrhenius</td><td>Produces H&#8314; (H&#8323;O&#8314;) in water</td><td>Produces OH&#8315; in water</td></tr>
-    <tr><td>Br&oslash;nsted-Lowry</td><td>Proton (H&#8314;) donor</td><td>Proton (H&#8314;) acceptor</td></tr>
-  </table>
-  <h3>Properties</h3>
-  <table class="fact-table">
-    <tr><th>Property</th><th>Acids</th><th>Bases</th></tr>
-    <tr><td>Taste</td><td>Sour</td><td>Bitter</td></tr>
-    <tr><td>Feel</td><td>Stinging</td><td>Slippery</td></tr>
-    <tr><td>Litmus</td><td>Turns blue litmus red</td><td>Turns red litmus blue</td></tr>
-    <tr><td>pH</td><td>&lt; 7</td><td>&gt; 7</td></tr>
-    <tr><td>React with metals?</td><td>Yes (produce H&#8322; gas)</td><td>Generally no</td></tr>
-  </table>
-  <div class="formula-box">
-    <div class="formula-label">pH Scale</div>
-    <code>pH = -log[H&#8314;]</code>
-    <br><br>pH 7 = neutral. pH &lt; 7 = acidic. pH &gt; 7 = basic. Each pH unit represents a 10-fold change in [H&#8314;]. pH 3 is 10 times more acidic than pH 4 and 100 times more acidic than pH 5.
-  </div>
-  <h3>Strong vs. Weak</h3>
-  <table class="fact-table">
-    <tr><th>Strong Acids (memorize)</th><th>Strong Bases (memorize)</th></tr>
-    <tr><td>HCl, HBr, HI, HNO&#8323;, H&#8322;SO&#8324;, HClO&#8324;</td><td>NaOH, KOH, Ca(OH)&#8322;, Ba(OH)&#8322;</td></tr>
-  </table>
-  <p>Strong acids and bases dissociate completely in water. Weak acids (like acetic acid, CH&#8323;COOH) and weak bases (like ammonia, NH&#8323;) only partially dissociate.</p>
-  <h3>Neutralization</h3>
-  <div class="formula-box">
-    <div class="formula-label">Neutralization Reaction</div>
-    <code>acid + base &rarr; salt + water</code>
-    <br><code>HCl + NaOH &rarr; NaCl + H&#8322;O</code>
-  </div>
-  <p>A buffer is a solution that resists pH change when small amounts of acid or base are added. Buffers contain a weak acid and its conjugate base (or a weak base and its conjugate acid).</p>
-</div>
+    <h3>Physical vs. Chemical Changes</h3>
 
-<!-- ============ 11 ============ -->
-<div class="section-card" id="nuclear">
-  <h2><span class="sec-num">11</span>Nuclear Chemistry</h2>
-  <p>Nuclear chemistry involves changes in the nucleus of an atom. Unlike chemical reactions (which involve electrons), nuclear reactions change the number of protons or neutrons, transmuting one element into another.</p>
-  <h3>Types of Radioactive Decay</h3>
-  <table class="fact-table">
-    <tr><th>Type</th><th>Particle</th><th>Symbol</th><th>Penetrating Power</th><th>Effect on Nucleus</th></tr>
-    <tr><td>Alpha (&alpha;)</td><td>Helium nucleus</td><td>&#8308;&#8322;He</td><td>Low (paper stops it)</td><td>Mass # drops 4, atomic # drops 2</td></tr>
-    <tr><td>Beta (&beta;)</td><td>Electron</td><td>&#8304;-&#8321;e</td><td>Medium (aluminum stops it)</td><td>Neutron &rarr; proton; atomic # rises 1</td></tr>
-    <tr><td>Gamma (&gamma;)</td><td>High-energy photon</td><td>&gamma;</td><td>High (lead/concrete)</td><td>No change in mass or atomic number</td></tr>
-  </table>
-  <div class="formula-box">
-    <div class="formula-label">Half-Life</div>
-    <code>Amount remaining = initial amount &times; (1/2)^n</code>
-    <br><code>n = number of half-lives = total time / half-life</code>
-    <br><br>After 1 half-life, 50% remains. After 2, 25%. After 3, 12.5%. After 4, 6.25%.
-  </div>
-  <h3>Nuclear Reactions</h3>
-  <table class="fact-table">
-    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
-    <tr><td>Fission</td><td>Large nucleus splits into smaller nuclei; releases energy</td><td>Nuclear power plants, atomic bombs (U-235)</td></tr>
-    <tr><td>Fusion</td><td>Small nuclei combine into a larger nucleus; releases even more energy</td><td>Sun, hydrogen bombs (H &rarr; He)</td></tr>
-  </table>
-  <div class="highlight-box">
-    <strong>Both fission and fusion release energy</strong> because the products have less mass than the reactants. The missing mass is converted to energy via Einstein's E = mc&sup2;. Fusion releases more energy per gram but requires extreme temperatures.
-  </div>
-</div>
+    <div class="def">
+      <div class="def-title">Definition: Physical Change</div>
+      <p>The substance <strong>looks different but is still the same substance</strong>. No new substance is created. It is usually reversible.</p>
+    </div>
+    <div class="def">
+      <div class="def-title">Definition: Chemical Change</div>
+      <p>A <strong>new substance with new properties</strong> is created. Usually cannot be easily reversed. Also called a chemical reaction.</p>
+    </div>
 
-<!-- ============================================================ -->
-<!-- =================== INTERACTIVE SECTIONS =================== -->
-<!-- ============================================================ -->
+    <div class="eg">
+      <div class="eg-title">Physical vs. Chemical — Easy Examples</div>
+      <p><strong>Physical:</strong> Melting ice (still water), cutting paper (still paper), dissolving sugar in tea (still sugar + water)</p>
+      <p><strong>Chemical:</strong> Burning wood (turns to ash + smoke — NOT wood anymore), rusting iron, baking a cake, digesting food</p>
+    </div>
 
-<div class="interactive-section" id="quiz">
-  <h2>Multiple Choice Quiz</h2>
-  <div class="quiz-progress">
-    <span>Question <span id="qCur">1</span> of <span id="qTot">30</span></span>
-    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qBar"></div></div>
-    <span class="quiz-score">Score: <span id="qScore">0</span></span>
-  </div>
-  <div id="qArea"></div>
-  <div class="quiz-nav">
-    <button class="quiz-btn" id="qSubmit" onclick="qCheck()">Check Answer</button>
-    <button class="quiz-btn" id="qNext" onclick="qAdvance()" style="display:none">Next Question</button>
-  </div>
-</div>
+    <div class="key">
+      <div class="key-title">How to Spot a Chemical Change</div>
+      <p>Look for: a color change that wasn't expected, bubbles of gas forming, a solid suddenly appearing in a liquid (called a precipitate), a big temperature change, light being produced, or a new smell. If you see these, a chemical reaction probably happened.</p>
+    </div>
 
-<div class="interactive-section" id="flashcards">
-  <h2>Flashcards</h2>
-  <div class="fc-filters" id="fcFilters"></div>
-  <div class="fc-container">
-    <div class="fc-card-wrapper" onclick="fcFlip()">
-      <div class="fc-card" id="fcCard">
-        <div class="fc-front"><span class="fc-category" id="fcCat"></span><p id="fcQ"></p></div>
-        <div class="fc-back"><p id="fcA"></p></div>
+    <h3>Energy Basics</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Energy</div>
+      <p>The ability to do work or cause change. Energy is <strong>never created or destroyed</strong> — it just changes form. This is called the <strong>Law of Conservation of Energy</strong>.</p>
+    </div>
+
+    <table>
+      <tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td><strong>Kinetic energy</strong></td><td>Energy of motion — anything that is moving has it</td><td>A rolling bowling ball, a molecule bouncing around</td></tr>
+      <tr><td><strong>Potential energy</strong></td><td>Stored energy — waiting to be used</td><td>A book on a shelf, energy stored in a chemical bond</td></tr>
+      <tr><td><strong>Exothermic reaction</strong></td><td>Releases heat to surroundings — feels hot</td><td>Burning wood, hand warmers, combustion in a car engine</td></tr>
+      <tr><td><strong>Endothermic reaction</strong></td><td>Absorbs heat from surroundings — feels cold</td><td>Melting ice, instant cold packs, cooking (absorbs heat from stove)</td></tr>
+    </table>
+
+    <div class="formula">
+      <div class="f-title">Temperature Conversion Formulas</div>
+      <code>°C = (°F − 32) × 5/9</code>
+      <code>K = °C + 273</code>
+      <div class="f-plain">Water freezes: 0°C / 32°F / 273 K &nbsp;|&nbsp; Water boils: 100°C / 212°F / 373 K &nbsp;|&nbsp; Absolute zero: 0 K (coldest possible)</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Density Formula</div>
+      <code>Density = Mass ÷ Volume &nbsp;&nbsp;&nbsp; (D = m/V)</code>
+      <div class="f-plain">Units: grams per mL (g/mL). Water's density = 1.00 g/mL. If something is denser than 1.00 g/mL, it sinks. If less, it floats. That's why wood floats and rocks sink!</div>
+    </div>
+  </div>
+
+  <!-- ====== 02 ATOMS ====== -->
+  <div class="card" id="atoms">
+    <h2><span class="snum">02</span> Atoms — The Building Blocks of Everything</h2>
+
+    <div class="def">
+      <div class="def-title">Definition: Atom</div>
+      <p>The <strong>smallest unit of an element</strong> that still has the chemical properties of that element. Everything you can touch is made of atoms. Atoms are incredibly tiny — a single human hair is about 500,000 atoms wide.</p>
+    </div>
+
+    <p>Every atom has a <span class="term">nucleus</span> (a dense center) surrounded by a <span class="term">cloud of electrons</span>. The nucleus contains protons and neutrons.</p>
+
+    <table>
+      <tr><th>Particle</th><th>Charge</th><th>Location</th><th>Mass</th><th>Think of it as...</th></tr>
+      <tr><td><strong>Proton</strong></td><td>+1 (positive)</td><td>Inside nucleus</td><td>~1 amu</td><td>The particle that defines WHAT element it is</td></tr>
+      <tr><td><strong>Neutron</strong></td><td>0 (neutral)</td><td>Inside nucleus</td><td>~1 amu</td><td>Adds mass, helps hold nucleus together</td></tr>
+      <tr><td><strong>Electron</strong></td><td>−1 (negative)</td><td>Orbiting outside</td><td>Essentially 0</td><td>Responsible for all chemical bonding and reactions</td></tr>
+    </table>
+
+    <div class="key">
+      <div class="key-title">The Most Important Numbers</div>
+      <p><strong>Atomic number</strong> = number of protons. This is what makes an element unique. Carbon always has 6 protons. Oxygen always has 8 protons. If you change the protons, you change the element.</p>
+      <p style="margin-top:0.5rem;"><strong>Mass number</strong> = protons + neutrons. This tells you how heavy the atom is.</p>
+      <p style="margin-top:0.5rem;"><strong>In a neutral atom:</strong> protons = electrons. If an atom gains or loses electrons, it becomes an ion (charged).</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Example: Sodium (Na)</div>
+      <p>Atomic number = 11 (always has 11 protons). If the mass number is 23, then: neutrons = 23 − 11 = 12 neutrons.</p>
+      <p>As a neutral atom, it has 11 electrons. If it loses 1 electron, it becomes Na⁺ (sodium ion, +1 charge).</p>
+    </div>
+
+    <h3>Isotopes — Same Element, Different Weight</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Isotope</div>
+      <p>Atoms of the <strong>same element</strong> (same number of protons) but with a <strong>different number of neutrons</strong>. They behave almost identically in chemical reactions but have different masses.</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Carbon Isotopes Example</div>
+      <p><strong>Carbon-12:</strong> 6 protons, 6 neutrons — the most common form of carbon</p>
+      <p><strong>Carbon-14:</strong> 6 protons, 8 neutrons — radioactive; used in carbon dating to figure out how old ancient objects are</p>
+    </div>
+
+    <h3>Valence Electrons — The Bonding Electrons</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Valence Electrons</div>
+      <p>The electrons in the <strong>outermost shell</strong> of an atom. These are the only electrons involved in chemical bonding. Atoms "want" to have a full outer shell (usually 8 electrons — called the <strong>octet rule</strong>).</p>
+    </div>
+
+    <div class="key">
+      <div class="key-title">Quick Rule for Valence Electrons</div>
+      <p>For the main-group elements, the group number (using the old 1A–8A system) tells you the number of valence electrons. Group 1A = 1 valence electron. Group 6A = 6. Group 8A (noble gases) = 8 (full = stable = doesn't react).</p>
+    </div>
+
+    <h3>Ions — Atoms with a Charge</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Ion</div>
+      <p>An atom that has <strong>gained or lost electrons</strong>, giving it an electrical charge. Metals tend to lose electrons (become positive). Nonmetals tend to gain electrons (become negative).</p>
+    </div>
+
+    <table>
+      <tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td><strong>Cation</strong></td><td>Positive ion (lost electrons)</td><td>Na⁺, Ca²⁺, Mg²⁺ — metals always form cations</td></tr>
+      <tr><td><strong>Anion</strong></td><td>Negative ion (gained electrons)</td><td>Cl⁻, O²⁻, F⁻ — nonmetals form anions</td></tr>
+    </table>
+  </div>
+
+  <!-- ====== 03 PERIODIC TABLE ====== -->
+  <div class="card" id="periodic">
+    <h2><span class="snum">03</span> The Periodic Table — The Chemist's Map</h2>
+
+    <div class="def">
+      <div class="def-title">Definition: Periodic Table</div>
+      <p>A chart that organizes all known elements by increasing atomic number. Elements in the same <strong>column (group/family)</strong> have similar chemical properties because they have the same number of valence electrons. Elements in the same <strong>row (period)</strong> have the same number of electron shells.</p>
+    </div>
+
+    <h3>The Three Main Regions</h3>
+
+    <table>
+      <tr><th>Region</th><th>Where on the Table</th><th>Key Properties</th><th>Examples</th></tr>
+      <tr><td><strong>Metals</strong></td><td>Left side and center</td><td>Shiny, conduct electricity and heat, can be hammered into shapes (malleable), tend to lose electrons</td><td>Iron (Fe), copper (Cu), gold (Au), sodium (Na)</td></tr>
+      <tr><td><strong>Nonmetals</strong></td><td>Upper right corner</td><td>Dull, poor conductors, tend to gain or share electrons</td><td>Oxygen (O), carbon (C), nitrogen (N), chlorine (Cl)</td></tr>
+      <tr><td><strong>Metalloids</strong></td><td>Staircase line between metals and nonmetals</td><td>Properties of both — used in semiconductors (computer chips!)</td><td>Silicon (Si), germanium (Ge)</td></tr>
+    </table>
+
+    <h3>Important Families to Know</h3>
+
+    <table>
+      <tr><th>Group</th><th>Family Name</th><th>Valence e⁻</th><th>What you need to know</th></tr>
+      <tr><td>1A</td><td>Alkali metals</td><td>1</td><td>Very reactive! They react violently with water. Form +1 ions. (Li, Na, K)</td></tr>
+      <tr><td>2A</td><td>Alkaline earth metals</td><td>2</td><td>Reactive, form +2 ions. (Mg, Ca)</td></tr>
+      <tr><td>7A</td><td>Halogens</td><td>7</td><td>Very reactive nonmetals — they desperately want 1 more electron. Form −1 ions. (F, Cl, Br, I)</td></tr>
+      <tr><td>8A</td><td>Noble gases</td><td>8 (full!)</td><td>Already have a full outer shell — almost never react with anything. (He, Ne, Ar)</td></tr>
+    </table>
+
+    <h3>Periodic Trends — Patterns Across the Table</h3>
+
+    <p>Properties change in predictable ways as you move across a period (left→right) or down a group (top→bottom).</p>
+
+    <table>
+      <tr><th>Property</th><th>Across a period →</th><th>Down a group ↓</th><th>Why it happens</th></tr>
+      <tr><td><strong>Atomic radius</strong> (atom size)</td><td>Gets <em>smaller</em></td><td>Gets <em>larger</em></td><td>More protons pull electrons in (→). More electron shells added (↓).</td></tr>
+      <tr><td><strong>Ionization energy</strong> (energy to remove an electron)</td><td><em>Increases</em></td><td><em>Decreases</em></td><td>Smaller atoms hold electrons more tightly.</td></tr>
+      <tr><td><strong>Electronegativity</strong> (ability to attract electrons in a bond)</td><td><em>Increases</em></td><td><em>Decreases</em></td><td>Fluorine (top right) is the most electronegative element — it pulls electrons hardest.</td></tr>
+    </table>
+
+    <div class="key">
+      <div class="key-title">Diatomic Elements — These Always Come in Pairs</div>
+      <p>Seven elements are never found alone in nature — they always form two-atom molecules. Remember: <strong>HOFBrINCl</strong> (say "Hoff-brinkle"). That's H₂, O₂, F₂, Br₂, I₂, N₂, Cl₂. When you write these in an equation, always use the subscript 2.</p>
+    </div>
+  </div>
+
+  <!-- ====== 04 BONDING ====== -->
+  <div class="card" id="bonding">
+    <h2><span class="snum">04</span> Chemical Bonding — How Atoms Stick Together</h2>
+
+    <div class="def">
+      <div class="def-title">Why Do Atoms Bond?</div>
+      <p>Atoms bond with each other to become more stable — specifically, to get a <strong>full outer shell of 8 electrons</strong> (the octet rule). Hydrogen is special: it only needs 2 electrons.</p>
+    </div>
+
+    <h3>The Two Main Types of Bonds</h3>
+
+    <table>
+      <tr><th>Bond Type</th><th>Who forms it?</th><th>What happens to electrons?</th><th>Common examples</th></tr>
+      <tr><td><strong>Ionic Bond</strong></td><td>Metal + nonmetal</td><td>Electrons are <em>transferred</em> from metal to nonmetal, creating opposite charges that attract</td><td>NaCl (table salt), MgO, CaCl₂</td></tr>
+      <tr><td><strong>Covalent Bond</strong></td><td>Nonmetal + nonmetal</td><td>Electrons are <em>shared</em> between atoms</td><td>H₂O (water), CO₂, CH₄ (natural gas)</td></tr>
+      <tr><td><strong>Metallic Bond</strong></td><td>Metal + metal</td><td>Electrons float freely through the whole material ("sea of electrons")</td><td>Copper wire, iron, gold</td></tr>
+    </table>
+
+    <div class="eg">
+      <div class="eg-title">Ionic Bond Example: Table Salt (NaCl)</div>
+      <p>Sodium (Na) has 1 valence electron it "wants" to give away. Chlorine (Cl) has 7 valence electrons and "wants" 1 more to fill its shell. So Na gives its electron to Cl. Na becomes Na⁺ (positive), Cl becomes Cl⁻ (negative). Opposites attract — they stick together!</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Covalent Bond Example: Water (H₂O)</div>
+      <p>Oxygen needs 2 more electrons to fill its shell. Hydrogen each need 1 more. So 2 hydrogen atoms each share 1 electron with the oxygen atom. Nobody fully gives or takes — they share. Result: a water molecule.</p>
+    </div>
+
+    <h3>Properties: Ionic vs. Covalent Compounds</h3>
+
+    <table>
+      <tr><th>Property</th><th>Ionic Compounds</th><th>Covalent Compounds</th></tr>
+      <tr><td>State at room temperature</td><td>Solid (crystalline)</td><td>Can be gas, liquid, or solid</td></tr>
+      <tr><td>Melting/boiling point</td><td>High (need lots of energy to break apart all those ions)</td><td>Low (easier to separate)</td></tr>
+      <tr><td>Conducts electricity when dissolved?</td><td><em>Yes</em> — ions can carry charge</td><td><em>No</em> — no ions present</td></tr>
+      <tr><td>Example</td><td>Salt, chalk, baking soda</td><td>Sugar, water, carbon dioxide</td></tr>
+    </table>
+
+    <h3>Polar vs. Nonpolar Bonds</h3>
+
+    <div class="def">
+      <div class="def-title">Polar vs. Nonpolar Covalent Bond</div>
+      <p>When two atoms share electrons <strong>equally</strong> (same or very similar electronegativity), the bond is <strong>nonpolar</strong>. When electrons are shared <strong>unequally</strong> (one atom pulls harder), the bond is <strong>polar</strong> — one end is slightly negative (δ⁻) and the other is slightly positive (δ⁺).</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Polar Bond Example: Water</div>
+      <p>Oxygen is much more electronegative than hydrogen, so it pulls the shared electrons closer to itself. This makes the oxygen end of the water molecule slightly negative and the hydrogen ends slightly positive. This is why water dissolves so many things — it's like a tiny magnet!</p>
+    </div>
+
+    <div class="key">
+      <div class="key-title">Quick Rule: What Kind of Bond?</div>
+      <p>Metal + nonmetal → ionic bond (electrons transferred)<br>
+      Nonmetal + nonmetal → covalent bond (electrons shared)<br>
+      Very large electronegativity difference (>1.7) → ionic character</p>
+    </div>
+
+    <h3>Molecular Shape (VSEPR — Quick Version)</h3>
+
+    <p>Lone pairs (unshared electron pairs) take up space and push bonded atoms around, changing the shape of a molecule.</p>
+
+    <table>
+      <tr><th>Bonded atoms</th><th>Lone pairs</th><th>Shape</th><th>Example</th><th>Think of it as...</th></tr>
+      <tr><td>2</td><td>0</td><td>Linear</td><td>CO₂</td><td>A straight line</td></tr>
+      <tr><td>3</td><td>0</td><td>Trigonal planar</td><td>BF₃</td><td>Flat triangle</td></tr>
+      <tr><td>4</td><td>0</td><td>Tetrahedral</td><td>CH₄</td><td>3D pyramid with 4 legs</td></tr>
+      <tr><td>3</td><td>1</td><td>Trigonal pyramidal</td><td>NH₃</td><td>Like a tripod</td></tr>
+      <tr><td>2</td><td>2</td><td>Bent</td><td>H₂O</td><td>A bent straw</td></tr>
+    </table>
+  </div>
+
+  <!-- ====== 05 NAMING ====== -->
+  <div class="card" id="naming">
+    <h2><span class="snum">05</span> Naming Compounds — The Language of Chemistry</h2>
+
+    <p>Different types of compounds follow different naming rules. First figure out: is this ionic (metal + nonmetal) or covalent (nonmetal + nonmetal)?</p>
+
+    <h3>Ionic Compounds (Metal + Nonmetal)</h3>
+
+    <div class="def">
+      <div class="def-title">Naming Rule: Ionic Compounds</div>
+      <p>1. Name the metal first (no change needed). 2. Name the nonmetal but change its ending to <strong>-ide</strong>. 3. If the metal is a transition metal that can have different charges, add a Roman numeral in parentheses to show the charge.</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Ionic Naming Examples</div>
+      <p>NaCl → sodium <strong>chloride</strong> (sodium + chlorine → chloride)</p>
+      <p>MgO → magnesium <strong>oxide</strong></p>
+      <p>FeCl₂ → iron<strong>(II)</strong> chloride — the (II) tells you iron has a +2 charge here</p>
+      <p>FeCl₃ → iron<strong>(III)</strong> chloride — the (III) tells you iron has a +3 charge here</p>
+    </div>
+
+    <h3>Covalent Compounds (Nonmetal + Nonmetal)</h3>
+
+    <div class="def">
+      <div class="def-title">Naming Rule: Covalent Compounds</div>
+      <p>Use Greek number prefixes to show how many of each atom there are. Change the ending of the second element to <strong>-ide</strong>. Don't use "mono-" for the first element if there is only one of it.</p>
+    </div>
+
+    <table>
+      <tr><th>Prefix</th><th>Number</th><th>Memory trick</th></tr>
+      <tr><td>mono-</td><td>1</td><td>monorail = 1 rail</td></tr>
+      <tr><td>di-</td><td>2</td><td>bicycle = 2 wheels</td></tr>
+      <tr><td>tri-</td><td>3</td><td>triangle = 3 sides</td></tr>
+      <tr><td>tetra-</td><td>4</td><td>tetrapod = 4 feet</td></tr>
+      <tr><td>penta-</td><td>5</td><td>pentagon = 5 sides</td></tr>
+      <tr><td>hexa-</td><td>6</td><td>hexagon = 6 sides</td></tr>
+    </table>
+
+    <div class="eg">
+      <div class="eg-title">Covalent Naming Examples</div>
+      <p>CO₂ → carbon <strong>di</strong>oxide (2 oxygens)</p>
+      <p>N₂O₄ → <strong>di</strong>nitrogen <strong>tetr</strong>oxide</p>
+      <p>PCl₃ → phosphorus <strong>tri</strong>chloride</p>
+    </div>
+
+    <h3>Polyatomic Ions — Groups of Atoms with a Charge</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Polyatomic Ion</div>
+      <p>A group of atoms that are bonded together and carry an overall charge. They stay together as a unit in chemical reactions. You need to memorize the most common ones.</p>
+    </div>
+
+    <table>
+      <tr><th>Ion Formula</th><th>Name</th><th>Charge</th></tr>
+      <tr><td>NH₄⁺</td><td>Ammonium</td><td>+1</td></tr>
+      <tr><td>OH⁻</td><td>Hydroxide</td><td>−1</td></tr>
+      <tr><td>NO₃⁻</td><td>Nitrate</td><td>−1</td></tr>
+      <tr><td>CO₃²⁻</td><td>Carbonate</td><td>−2</td></tr>
+      <tr><td>SO₄²⁻</td><td>Sulfate</td><td>−2</td></tr>
+      <tr><td>PO₄³⁻</td><td>Phosphate</td><td>−3</td></tr>
+      <tr><td>HCO₃⁻</td><td>Bicarbonate (hydrogen carbonate)</td><td>−1</td></tr>
+    </table>
+  </div>
+
+  <!-- ====== 06 REACTIONS ====== -->
+  <div class="card" id="reactions">
+    <h2><span class="snum">06</span> Chemical Reactions &amp; Equations</h2>
+
+    <div class="def">
+      <div class="def-title">Definition: Chemical Equation</div>
+      <p>A shorthand way to write a chemical reaction using formulas. <strong>Reactants</strong> (starting materials) go on the left side. <strong>Products</strong> (what you end up with) go on the right side. The arrow means "reacts to form."</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Reading an Equation</div>
+      <p>2H₂ + O₂ → 2H₂O means: "2 molecules of hydrogen gas react with 1 molecule of oxygen gas to produce 2 molecules of water."</p>
+    </div>
+
+    <div class="key">
+      <div class="key-title">Balancing Equations — The Golden Rule</div>
+      <p>The number of each type of atom must be the same on both sides of the equation (Law of Conservation of Mass — matter cannot be created or destroyed). <strong>Adjust only the coefficients</strong> (the big numbers in front of formulas) — <em>never</em> change the subscripts inside a formula, because that would change what compound you have.</p>
+    </div>
+
+    <h3>The Five Main Types of Reactions</h3>
+
+    <table>
+      <tr><th>Type</th><th>Pattern</th><th>Example</th><th>Think of it as...</th></tr>
+      <tr><td><strong>Synthesis</strong></td><td>A + B → AB</td><td>2Na + Cl₂ → 2NaCl</td><td>Two things combine into one</td></tr>
+      <tr><td><strong>Decomposition</strong></td><td>AB → A + B</td><td>2H₂O → 2H₂ + O₂</td><td>One thing breaks apart into two (or more)</td></tr>
+      <tr><td><strong>Single Replacement</strong></td><td>A + BC → AC + B</td><td>Zn + CuSO₄ → ZnSO₄ + Cu</td><td>One element kicks another out and takes its place</td></tr>
+      <tr><td><strong>Double Replacement</strong></td><td>AB + CD → AD + CB</td><td>AgNO₃ + NaCl → AgCl + NaNO₃</td><td>Two compounds swap partners</td></tr>
+      <tr><td><strong>Combustion</strong></td><td>Fuel + O₂ → CO₂ + H₂O</td><td>CH₄ + 2O₂ → CO₂ + 2H₂O</td><td>Something burns — always produces CO₂ and water, always releases heat</td></tr>
+    </table>
+
+    <div class="eg">
+      <div class="eg-title">Reaction Types in Real Life</div>
+      <p><strong>Synthesis:</strong> Your body building proteins from amino acids</p>
+      <p><strong>Decomposition:</strong> Food rotting, hydrogen peroxide breaking down in a wound (the fizzing you see!)</p>
+      <p><strong>Single replacement:</strong> Zinc metal dissolving in an acid, pushing out hydrogen gas</p>
+      <p><strong>Double replacement:</strong> Mixing bleach and ammonia — dangerous! The ions swap and form new (toxic) compounds</p>
+      <p><strong>Combustion:</strong> Burning gasoline in a car, candles, natural gas on a stove</p>
+    </div>
+  </div>
+
+  <!-- ====== 07 MOLE ====== -->
+  <div class="card" id="stoich">
+    <h2><span class="snum">07</span> The Mole &amp; Stoichiometry — Counting Atoms</h2>
+
+    <div class="def">
+      <div class="def-title">Definition: The Mole</div>
+      <p>A unit chemists use to count atoms and molecules. Because atoms are so incredibly tiny, we need a very large counting unit. <strong>One mole = 6.022 × 10²³ particles</strong> (about 602 billion trillion). This number is called Avogadro's number.</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Why Do We Need the Mole?</div>
+      <p>Think of it like a "dozen" but WAY bigger. A dozen eggs = 12. A mole of eggs = 6.022 × 10²³. We use moles because atoms are so small that even a tiny amount of any substance contains an enormous number of them. One teaspoon of water contains roughly 1.67 × 10²³ molecules.</p>
+    </div>
+
+    <div class="def">
+      <div class="def-title">Definition: Molar Mass</div>
+      <p>The mass of one mole of a substance, in grams per mole (g/mol). For an element, the molar mass equals the atomic mass number on the periodic table. For a compound, add up the atomic masses of all the atoms in the formula.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Core Mole Conversions</div>
+      <code>moles = grams ÷ molar mass</code>
+      <code>grams = moles × molar mass</code>
+      <code>particles = moles × 6.022 × 10²³</code>
+      <div class="f-plain">Example: Molar mass of water (H₂O) = 2(1) + 16 = 18 g/mol. So 36 grams of water = 36 ÷ 18 = 2 moles of water.</div>
+    </div>
+
+    <h3>Stoichiometry — Using Equations to Predict Amounts</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Stoichiometry</div>
+      <p>Using the balanced equation to figure out how much of one substance you need — or how much product you'll get. The <strong>coefficients in the balanced equation</strong> tell you the exact mole ratios between all substances.</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Stoichiometry Road Map</div>
+      <p>Grams of A → moles of A → (use mole ratio from equation) → moles of B → grams of B</p>
+      <p>Example: 2H₂ + O₂ → 2H₂O. For every 1 mole of O₂ you use, you get 2 moles of H₂O.</p>
+    </div>
+
+    <div class="key">
+      <div class="key-title">Limiting Reagent — What Runs Out First?</div>
+      <p>In most reactions, one reactant runs out before the other. The one that runs out first is the <strong>limiting reagent</strong> — it controls (limits) how much product you can make. The leftover reactant is in <strong>excess</strong>. To find the limiting reagent: convert each reactant to moles of product — whichever gives the <em>smaller</em> amount of product is limiting.</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Limiting Reagent Analogy</div>
+      <p>Making sandwiches: 1 sandwich needs 2 slices of bread + 1 slice of cheese. If you have 10 slices of bread but only 3 slices of cheese, you can only make 3 sandwiches. Cheese is the limiting reagent. Bread is in excess.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Percent Yield</div>
+      <code>% yield = (actual yield ÷ theoretical yield) × 100</code>
+      <div class="f-plain">Theoretical yield is what you calculated you should get. Actual yield is what you measured in the lab. Percent yield is always ≤ 100% because real experiments always have some loss.</div>
+    </div>
+  </div>
+
+  <!-- ====== 08 GASES ====== -->
+  <div class="card" id="gases">
+    <h2><span class="snum">08</span> Gases — How Pressure, Volume, and Temperature Relate</h2>
+
+    <p>Gases are unique: they fill whatever container they're in, and changing pressure, temperature, or amount directly affects volume. Several laws describe these relationships.</p>
+
+    <table>
+      <tr><th>Law</th><th>What it says</th><th>Equation</th><th>Real-life example</th></tr>
+      <tr><td><strong>Boyle's Law</strong></td><td>Pressure ↑ means Volume ↓ (and vice versa), when temperature is constant</td><td>P₁V₁ = P₂V₂</td><td>Squeezing a syringe or a balloon — harder pressure = smaller volume</td></tr>
+      <tr><td><strong>Charles's Law</strong></td><td>Temperature ↑ means Volume ↑, when pressure is constant</td><td>V₁/T₁ = V₂/T₂</td><td>Hot air balloon — heating air inside makes it expand and lift the balloon</td></tr>
+      <tr><td><strong>Gay-Lussac's Law</strong></td><td>Temperature ↑ means Pressure ↑, when volume is constant</td><td>P₁/T₁ = P₂/T₂</td><td>Aerosol can warning: don't heat it — pressure builds and it can explode</td></tr>
+      <tr><td><strong>Avogadro's Law</strong></td><td>More gas molecules = bigger volume (at same temp and pressure)</td><td>V₁/n₁ = V₂/n₂</td><td>Blowing up a balloon — more air in = bigger balloon</td></tr>
+    </table>
+
+    <div class="formula">
+      <div class="f-title">Ideal Gas Law — The Master Equation</div>
+      <code>PV = nRT</code>
+      <div class="f-plain">P = pressure (in atm) | V = volume (in liters) | n = moles of gas | R = 0.0821 L·atm/mol·K | T = temperature in KELVIN</div>
+    </div>
+
+    <div class="key">
+      <div class="key-title">ALWAYS Use Kelvin for Gas Law Problems!</div>
+      <p>Celsius temperatures can be negative (like −10°C), which would cause math errors in gas law equations. Kelvin is always positive. Convert: K = °C + 273. At STP (standard temperature and pressure = 0°C and 1 atm), 1 mole of any gas occupies <strong>22.4 liters</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ====== 09 SOLUTIONS ====== -->
+  <div class="card" id="solutions">
+    <h2><span class="snum">09</span> Solutions &amp; Concentration — Mixing Things in Water</h2>
+
+    <div class="def">
+      <div class="def-title">Key Terms</div>
+      <p><strong>Solution:</strong> A homogeneous (uniform) mixture of two or more substances.</p>
+      <p style="margin-top:0.4rem;"><strong>Solute:</strong> The substance being dissolved (usually present in smaller amount). Salt in saltwater = the solute.</p>
+      <p style="margin-top:0.4rem;"><strong>Solvent:</strong> The substance doing the dissolving (usually present in larger amount). Water in saltwater = the solvent. Water is called the "universal solvent."</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Molarity — The Most Common Concentration Unit</div>
+      <code>Molarity (M) = moles of solute ÷ liters of solution</code>
+      <div class="f-plain">Example: If you dissolve 2 moles of NaCl in 1 liter of water, the solution is 2 M (2 molar). Molarity tells you "how concentrated is this solution?"</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Dilution Equation — When You Add More Water</div>
+      <code>M₁V₁ = M₂V₂</code>
+      <div class="f-plain">The moles of solute stay the same when you dilute. You just add more solvent to spread them out. Used in labs when making solutions from concentrated stock solutions.</div>
+    </div>
+
+    <h3>What Dissolves in What?</h3>
+
+    <div class="key">
+      <div class="key-title">"Like Dissolves Like" — The Most Important Solubility Rule</div>
+      <p>Polar solvents (like water) dissolve polar solutes (like salt, sugar). Nonpolar solvents (like oil) dissolve nonpolar solutes (like grease). This is why "oil and water don't mix" — oil is nonpolar and water is polar. And why soap works: it has both a polar end and a nonpolar end, so it can grab onto grease AND water!</p>
+    </div>
+
+    <h3>Electrolytes — Do Ions Form in Solution?</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Electrolyte</div>
+      <p>A substance that conducts electricity when dissolved in water because it produces ions in solution.</p>
+    </div>
+
+    <table>
+      <tr><th>Type</th><th>What happens in water</th><th>Conducts electricity?</th><th>Examples</th></tr>
+      <tr><td><strong>Strong electrolyte</strong></td><td>Breaks apart completely into ions (100% dissociation)</td><td>Well</td><td>NaCl, HCl, NaOH, KBr</td></tr>
+      <tr><td><strong>Weak electrolyte</strong></td><td>Only partially breaks apart into ions</td><td>Poorly</td><td>Acetic acid (vinegar), ammonia</td></tr>
+      <tr><td><strong>Nonelectrolyte</strong></td><td>Stays as whole molecules — no ions</td><td>Not at all</td><td>Sugar, ethanol (alcohol)</td></tr>
+    </table>
+  </div>
+
+  <!-- ====== 10 ACIDS/BASES ====== -->
+  <div class="card" id="acids">
+    <h2><span class="snum">10</span> Acids, Bases &amp; pH</h2>
+
+    <div class="def">
+      <div class="def-title">Definition: Acid (Arrhenius)</div>
+      <p>A substance that produces hydrogen ions (H⁺) when dissolved in water. The more H⁺ ions, the more acidic.</p>
+    </div>
+    <div class="def">
+      <div class="def-title">Definition: Base (Arrhenius)</div>
+      <p>A substance that produces hydroxide ions (OH⁻) when dissolved in water. The more OH⁻ ions, the more basic (also called alkaline).</p>
+    </div>
+
+    <p>The Brønsted-Lowry definition is broader: an <strong>acid is a proton donor</strong> (gives away H⁺), and a <strong>base is a proton acceptor</strong> (accepts H⁺).</p>
+
+    <table>
+      <tr><th>Property</th><th>Acids</th><th>Bases</th></tr>
+      <tr><td>Taste (DON'T test this!)</td><td>Sour (lemon juice, vinegar)</td><td>Bitter (baking soda)</td></tr>
+      <tr><td>Feel (DON'T test this!)</td><td>Stinging</td><td>Slippery/soapy</td></tr>
+      <tr><td>Litmus paper test</td><td>Turns blue litmus <strong>red</strong></td><td>Turns red litmus <strong>blue</strong></td></tr>
+      <tr><td>pH value</td><td>Less than 7</td><td>Greater than 7</td></tr>
+    </table>
+
+    <h3>The pH Scale</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: pH</div>
+      <p>A scale from 0 to 14 that measures how acidic or basic a solution is. pH 7 = neutral (pure water). Below 7 = acidic. Above 7 = basic. The formula: <strong>pH = −log[H⁺]</strong>.</p>
+    </div>
+
+    <div class="key">
+      <div class="key-title">The pH Scale Is Logarithmic — Each Step Is 10× Bigger</div>
+      <p>A solution at pH 3 is NOT twice as acidic as pH 6. It is <strong>10³ = 1,000 times more acidic</strong>. Each pH unit represents a 10-fold change in hydrogen ion concentration. Battery acid (pH ~0) is about 10 billion times more acidic than pure water (pH 7).</p>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Everyday pH Examples</div>
+      <p>pH 0–2: Battery acid, stomach acid | pH 3–4: Lemon juice, vinegar | pH 5–6: Coffee, rain | pH 7: Pure water | pH 8–9: Baking soda, seawater | pH 11–12: Ammonia | pH 14: Drain cleaner</p>
+    </div>
+
+    <h3>Strong vs. Weak Acids and Bases</h3>
+
+    <div class="def">
+      <div class="def-title">Strong vs. Weak</div>
+      <p><strong>Strong acid/base:</strong> Dissociates <em>completely</em> in water — every molecule breaks apart into ions. These are more dangerous and more reactive.</p>
+      <p style="margin-top:0.4rem;"><strong>Weak acid/base:</strong> Only <em>partially</em> dissociates — most molecules stay intact. Vinegar (acetic acid) is a weak acid — it still burns but not nearly as badly as a strong acid.</p>
+    </div>
+
+    <div class="key">
+      <div class="key-title">The 6 Strong Acids — Memorize These</div>
+      <p>HCl (hydrochloric), HBr (hydrobromic), HI (hydroiodic), HNO₃ (nitric), H₂SO₄ (sulfuric), HClO₄ (perchloric). <strong>Everything else is a weak acid.</strong> Strong bases: NaOH, KOH, Ca(OH)₂, Ba(OH)₂.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Neutralization Reaction</div>
+      <code>acid + base → salt + water</code>
+      <code>HCl + NaOH → NaCl + H₂O</code>
+      <div class="f-plain">This is how antacids work — the base in the tablet (like Mg(OH)₂) neutralizes stomach acid (HCl), reducing heartburn.</div>
+    </div>
+
+    <div class="def">
+      <div class="def-title">Definition: Buffer</div>
+      <p>A solution that <strong>resists changes in pH</strong> when small amounts of acid or base are added. Your blood is a buffer — it stays between pH 7.35 and 7.45 no matter what you eat. A buffer contains a weak acid and its conjugate base (or weak base + conjugate acid).</p>
+    </div>
+  </div>
+
+  <!-- ====== 11 NUCLEAR ====== -->
+  <div class="card" id="nuclear">
+    <h2><span class="snum">11</span> Nuclear Chemistry — Changes in the Nucleus</h2>
+
+    <div class="def">
+      <div class="def-title">Nuclear Chemistry vs. Regular Chemistry</div>
+      <p>Regular chemical reactions involve only the <strong>electrons</strong> of atoms. Nuclear reactions involve the <strong>nucleus itself</strong> — changing the number of protons or neutrons. This can transform one element into a completely different element!</p>
+    </div>
+
+    <div class="def">
+      <div class="def-title">Definition: Radioactive Decay</div>
+      <p>When an unstable nucleus spontaneously releases energy and particles to become more stable. The atom often transforms into a different element in the process.</p>
+    </div>
+
+    <h3>Three Types of Radiation</h3>
+
+    <table>
+      <tr><th>Type</th><th>What it is</th><th>Charge</th><th>Penetrating power</th><th>What stops it</th><th>Effect on nucleus</th></tr>
+      <tr><td><strong>Alpha (α)</strong></td><td>Helium nucleus (2 protons + 2 neutrons)</td><td>+2</td><td>Lowest</td><td>A sheet of paper; your skin</td><td>Mass # −4, atomic # −2</td></tr>
+      <tr><td><strong>Beta (β)</strong></td><td>A high-speed electron shot from the nucleus</td><td>−1</td><td>Medium</td><td>Aluminum foil</td><td>Atomic # +1 (a neutron became a proton)</td></tr>
+      <tr><td><strong>Gamma (γ)</strong></td><td>High-energy wave (like very powerful X-ray)</td><td>0</td><td>Highest</td><td>Thick lead or concrete</td><td>No change in mass or atomic number</td></tr>
+    </table>
+
+    <div class="eg">
+      <div class="eg-title">Real-World Radiation</div>
+      <p><strong>Alpha:</strong> Smoke detectors use alpha radiation (safe indoors because paper/air stops it). Radon gas in basements emits alpha — dangerous because you breathe it into your lungs where nothing can stop it.</p>
+      <p><strong>Beta:</strong> Used in some medical treatments to target tumors.</p>
+      <p><strong>Gamma:</strong> Sterilizing medical equipment, cancer radiation therapy, airport security scanners.</p>
+    </div>
+
+    <h3>Half-Life — How Fast Does Radioactivity Decrease?</h3>
+
+    <div class="def">
+      <div class="def-title">Definition: Half-Life</div>
+      <p>The time it takes for <strong>half of a radioactive sample to decay</strong>. After one half-life, 50% remains. After two half-lives, 25% remains. After three, 12.5%. And so on.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-title">Half-Life Formula</div>
+      <code>Amount remaining = initial amount × (1/2)ⁿ</code>
+      <div class="f-plain">n = number of half-lives elapsed = (total time) ÷ (length of one half-life)</div>
+    </div>
+
+    <div class="eg">
+      <div class="eg-title">Half-Life Example</div>
+      <p>You start with 80 grams of a radioactive substance. Its half-life is 10 years. After 30 years (3 half-lives): 80 × (1/2)³ = 80 × 1/8 = <strong>10 grams remaining</strong>.</p>
+      <p>Carbon-14 has a half-life of ~5,730 years — that's why it can be used to date objects thousands of years old!</p>
+    </div>
+
+    <h3>Fission vs. Fusion</h3>
+
+    <table>
+      <tr><th></th><th>Nuclear Fission</th><th>Nuclear Fusion</th></tr>
+      <tr><td><strong>What happens</strong></td><td>A large, heavy nucleus <em>splits</em> into smaller ones</td><td>Small, light nuclei <em>combine</em> into a larger one</td></tr>
+      <tr><td><strong>Example</strong></td><td>Uranium-235 splits in nuclear reactors and atomic bombs</td><td>Hydrogen nuclei fuse to form helium in the Sun</td></tr>
+      <tr><td><strong>Energy released?</strong></td><td>Yes — huge amounts</td><td>Yes — even more than fission</td></tr>
+      <tr><td><strong>Where used</strong></td><td>Nuclear power plants, nuclear weapons</td><td>The Sun, hydrogen bombs; scientists working to harness it for clean energy</td></tr>
+    </table>
+
+    <div class="key">
+      <div class="key-title">Where Does All That Energy Come From? E = mc²</div>
+      <p>In both fission and fusion, the products weigh slightly <em>less</em> than the starting materials. That "missing" mass isn't actually missing — it was converted directly into energy, following Einstein's famous equation E = mc². Because the speed of light (c) is so enormous, even a tiny bit of mass converts to a massive amount of energy.</p>
+    </div>
+  </div>
+
+  <!-- ====================== QUIZ ====================== -->
+  <div class="isec" id="quiz">
+    <h2>Practice Quiz — 30 Questions</h2>
+    <div class="qprog">
+      <span>Question <span id="qCur">1</span> of <span id="qTot">30</span></span>
+      <div class="qbar-wrap"><div class="qbar-fill" id="qBar"></div></div>
+      <span class="qscore">Score: <span id="qScore">0</span></span>
+    </div>
+    <div id="qArea"></div>
+    <div class="qnav">
+      <button class="qbtn" id="qSubmit" onclick="qCheck()">Check Answer</button>
+      <button class="qbtn" id="qNext" onclick="qAdvance()" style="display:none">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- ====================== FLASHCARDS ====================== -->
+  <div class="isec" id="flashcards">
+    <h2>Flashcards</h2>
+    <div class="fc-filters" id="fcFilters"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="fc-wrap" onclick="fcFlip()">
+        <div class="fc-card" id="fcCard">
+          <div class="fc-front">
+            <span class="fcat" id="fcCat"></span>
+            <p id="fcQ"></p>
+            <span class="fhint">Tap to reveal →</span>
+          </div>
+          <div class="fc-back"><p id="fcA"></p></div>
+        </div>
+      </div>
+      <div class="fc-ctrls">
+        <button class="fc-nav" onclick="fcPrev()">← Prev</button>
+        <span class="fc-ct"><span id="fcIdx">1</span> / <span id="fcTot">0</span></span>
+        <button class="fc-nav" onclick="fcNext()">Next →</button>
       </div>
     </div>
-    <div class="fc-controls">
-      <button class="fc-nav-btn" onclick="fcPrev()">&larr; Prev</button>
-      <span class="fc-counter"><span id="fcIdx">1</span> / <span id="fcTot">0</span></span>
-      <button class="fc-nav-btn" onclick="fcNext()">Next &rarr;</button>
-    </div>
   </div>
-</div>
 
-<div class="interactive-section" id="short-answer">
-  <h2>Short Answer Practice</h2>
-  <p style="color:var(--text-muted);margin-bottom:1.5rem">Answer in your own words. The grader checks for key concepts, not exact wording.</p>
-  <div id="saArea"></div>
-  <button class="quiz-btn" onclick="saGradeAll()" style="margin-top:1rem">Grade All Answers</button>
-</div>
+  <!-- ====================== SHORT ANSWER ====================== -->
+  <div class="isec" id="sa">
+    <h2>Short Answer Practice</h2>
+    <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.95rem;">Write your answer, then click "Grade All" to see how well you covered the key concepts.</p>
+    <div id="saArea"></div>
+    <button class="qbtn" onclick="saGradeAll()" style="margin-top:1rem;">Grade All Answers</button>
+  </div>
 
+</div><!-- end container -->
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div style="max-width:860px;margin:30px auto 0;padding:0 1.25rem 2rem;font-size:0.88rem;line-height:1.6;color:#888;text-align:center;">
+  These study resources are supplemental study aids only. Always verify facts against your official course materials. Not affiliated with any university or publisher.
 </div>
-<button class="back-to-top" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
 
 <script>
 const QD=[
-{q:"A substance made of two or more elements chemically bonded in a fixed ratio is a:",o:["Element","Compound","Homogeneous mixture","Heterogeneous mixture"],a:1,e:"A compound contains two or more elements in a fixed ratio (e.g., H2O always has 2H:1O). A mixture has variable composition."},
-{q:"Which is a chemical change?",o:["Melting ice","Dissolving sugar","Cutting wood","Burning paper"],a:3,e:"Burning creates new substances (CO2, H2O, ash). Melting, dissolving, and cutting are physical changes."},
-{q:"An atom with 11 protons, 12 neutrons, and 10 electrons has a charge of:",o:["+1","-1","+2","0"],a:0,e:"Charge = protons - electrons = 11 - 10 = +1. This is a sodium cation (Na+)."},
-{q:"Isotopes of an element differ in their number of:",o:["Protons","Neutrons","Electrons","Valence electrons"],a:1,e:"Isotopes have the same number of protons (same element) but different numbers of neutrons, giving different mass numbers."},
-{q:"How many valence electrons does an element in Group 6A have?",o:["2","4","6","8"],a:2,e:"For main-group elements, the group number (A system) equals the number of valence electrons. Group 6A = 6."},
-{q:"Going across a period (left to right), atomic radius generally:",o:["Increases","Decreases","Stays the same","Doubles"],a:1,e:"More protons pull the electron cloud tighter without adding a new shell, so atoms get smaller."},
-{q:"The seven diatomic elements can be remembered as:",o:["CHNOPS","HOFBrINCl","CHOPKINS","SPONCH"],a:1,e:"HOFBrINCl: H2, O2, F2, Br2, I2, N2, Cl2 are the seven elements that exist naturally as diatomic molecules."},
-{q:"In an ionic bond, electrons are:",o:["Shared equally","Shared unequally","Transferred from metal to nonmetal","Delocalized"],a:2,e:"Ionic bonds form when a metal transfers electrons to a nonmetal, creating oppositely charged ions that attract."},
-{q:"Water (H2O) has a bent shape because:",o:["It has no lone pairs","It has two lone pairs on oxygen","It has triple bonds","Hydrogen is very large"],a:1,e:"Oxygen has 4 electron groups (2 bonded, 2 lone pairs). The lone pairs push the bonded atoms closer, giving a bent shape."},
-{q:"The correct name for N2O4 is:",o:["Nitrogen oxide","Nitrogen tetroxide","Dinitrogen tetroxide","Dinitrogen quadoxide"],a:2,e:"Covalent naming: N2 = dinitrogen, O4 = tetroxide. Use Greek prefixes for both elements."},
-{q:"What type of reaction is: 2Na + Cl2 -> 2NaCl?",o:["Decomposition","Single replacement","Synthesis","Combustion"],a:2,e:"Two substances combine to form one product: A + B -> AB. This is synthesis (combination)."},
-{q:"In a balanced equation, what is conserved?",o:["Only mass","Only energy","Both mass and atoms","Only volume"],a:2,e:"The law of conservation of mass: atoms are neither created nor destroyed. Both total mass and atom counts are conserved."},
-{q:"Avogadro's number is approximately:",o:["6.022 x 10^20","6.022 x 10^23","6.022 x 10^26","3.011 x 10^23"],a:1,e:"One mole = 6.022 x 10^23 particles (atoms, molecules, or formula units)."},
-{q:"How many grams are in 2 moles of H2O (molar mass = 18 g/mol)?",o:["9 g","18 g","36 g","72 g"],a:2,e:"grams = moles x molar mass = 2 x 18 = 36 g."},
-{q:"The limiting reagent is the reactant that:",o:["Is present in excess","Is more expensive","Runs out first and limits product","Has the largest molar mass"],a:2,e:"The limiting reagent is completely consumed first, determining the maximum amount of product that can form."},
-{q:"According to Boyle's law, if pressure on a gas doubles (at constant T), volume:",o:["Doubles","Is halved","Stays the same","Quadruples"],a:1,e:"Boyle's law: P and V are inversely proportional. P1V1 = P2V2. If P doubles, V halves."},
-{q:"Gas law calculations always require temperature in:",o:["Celsius","Fahrenheit","Kelvin","Any unit"],a:2,e:"Gas law equations (PV = nRT, Charles's law, etc.) require absolute temperature in Kelvin. K = C + 273."},
-{q:"At STP, 1 mole of any gas occupies:",o:["1 L","11.2 L","22.4 L","44.8 L"],a:2,e:"STP = 0 degrees C, 1 atm. At STP, 1 mole of any ideal gas = 22.4 L (molar volume)."},
-{q:"Molarity is defined as:",o:["Grams of solute per liter","Moles of solute per liter of solution","Moles of solute per kg of solvent","Grams per mL"],a:1,e:"M = moles of solute / liters of solution. It is the most common concentration unit."},
-{q:"'Like dissolves like' means:",o:["Any substance dissolves in any solvent","Polar dissolves polar, nonpolar dissolves nonpolar","Hot things dissolve cold things","Acids dissolve bases"],a:1,e:"Polar solvents (water) dissolve polar/ionic solutes. Nonpolar solvents dissolve nonpolar solutes."},
-{q:"A strong electrolyte in water:",o:["Does not dissolve","Partially dissociates","Completely dissociates into ions","Remains as molecules"],a:2,e:"Strong electrolytes (NaCl, HCl, NaOH) dissociate 100% into ions, conducting electricity well."},
-{q:"A solution with pH 3 compared to pH 5 is:",o:["2 times more acidic","10 times more acidic","100 times more acidic","The same acidity"],a:2,e:"Each pH unit = 10x change in [H+]. pH 3 to pH 5 = 2 units = 10^2 = 100 times more acidic."},
-{q:"Which is a strong acid?",o:["CH3COOH (acetic acid)","HF (hydrofluoric acid)","HCl (hydrochloric acid)","H2CO3 (carbonic acid)"],a:2,e:"HCl is one of the six strong acids (HCl, HBr, HI, HNO3, H2SO4, HClO4). The others listed are weak acids."},
-{q:"A neutralization reaction produces:",o:["An acid and a gas","A base and a metal","A salt and water","Two new acids"],a:2,e:"acid + base -> salt + water. Example: HCl + NaOH -> NaCl + H2O."},
-{q:"A buffer resists changes in:",o:["Temperature","Volume","pH","Pressure"],a:2,e:"Buffers maintain relatively stable pH when small amounts of acid or base are added. They contain a weak acid and its conjugate base."},
-{q:"Alpha particles are stopped by:",o:["A sheet of paper","Aluminum foil","A lead block","Nothing"],a:0,e:"Alpha particles have low penetrating power. A sheet of paper or skin stops them. Beta needs aluminum, gamma needs lead."},
-{q:"After 3 half-lives, what fraction of a radioactive sample remains?",o:["1/2","1/4","1/8","1/16"],a:2,e:"After each half-life, half remains: 1 -> 1/2 -> 1/4 -> 1/8. After 3 half-lives = (1/2)^3 = 1/8."},
-{q:"Nuclear fission involves:",o:["Small nuclei combining","A large nucleus splitting","Electron capture only","Chemical bond breaking"],a:1,e:"Fission = splitting a large nucleus into smaller ones, releasing energy. Used in nuclear power plants."},
-{q:"The energy in nuclear reactions comes from:",o:["Chemical bonds breaking","Electron transitions","Mass converted to energy (E = mc2)","Increased temperature"],a:2,e:"Products have less mass than reactants. The 'missing' mass converts to energy via Einstein's E = mc2."},
-{q:"Which type of radiation has the highest penetrating power?",o:["Alpha","Beta","Gamma","All are equal"],a:2,e:"Gamma rays are high-energy photons with no mass or charge. They require thick lead or concrete to stop."}
+{q:"A substance that cannot be broken down into simpler substances by chemical means is called a(n):",o:["Compound","Element","Mixture","Solution"],a:1,e:"An element is made of only one type of atom. You can't separate it into simpler substances by chemical reactions. Gold, oxygen, and carbon are elements."},
+{q:"Which of the following is a CHEMICAL change (not a physical change)?",o:["Melting ice into water","Dissolving sugar in coffee","Burning a piece of wood","Cutting paper into smaller pieces"],a:2,e:"Burning wood creates entirely new substances (ash, carbon dioxide, water vapor). The other options all change the appearance of matter but don't create new substances — they are physical changes."},
+{q:"An atom has 11 protons, 12 neutrons, and 10 electrons. What is its overall charge?",o:["+1","-1","0","+2"],a:0,e:"Charge = protons minus electrons = 11 - 10 = +1. This is a sodium cation (Na+). It lost one electron to become positively charged."},
+{q:"Carbon-12 and Carbon-14 are isotopes. What makes them different?",o:["They have different numbers of protons","They have different numbers of neutrons","They are different elements","They have different numbers of electrons"],a:1,e:"Isotopes are the same element (same number of protons — both have 6) but different numbers of neutrons. Carbon-12 has 6 neutrons, Carbon-14 has 8 neutrons."},
+{q:"An element in Group 6A (column 6) of the periodic table has how many valence electrons?",o:["2","4","6","8"],a:2,e:"For main-group elements, the group number in the A system equals the number of valence electrons. Group 6A = 6 valence electrons. Oxygen is in Group 6A and has 6 valence electrons."},
+{q:"As you move LEFT to RIGHT across a period on the periodic table, atomic size (radius):",o:["Increases","Decreases","Stays the same","Doubles"],a:1,e:"Moving across a period, the number of protons increases but no new electron shells are added. More protons pull the electrons in tighter, making the atom smaller."},
+{q:"Which mnemonic helps you remember the seven diatomic elements?",o:["SPONCH","CHNOPS","HOFBrINCl","CHOPKINS"],a:2,e:"HOFBrINCl: Hydrogen (H₂), Oxygen (O₂), Fluorine (F₂), Bromine (Br₂), Iodine (I₂), Nitrogen (N₂), Chlorine (Cl₂). These seven always exist as two-atom molecules."},
+{q:"Table salt (NaCl) forms through an ionic bond. This means:",o:["Electrons are shared equally between atoms","Electrons are shared unequally","Electrons are transferred from sodium to chlorine","Electrons float freely through the whole crystal"],a:2,e:"Ionic bonds form when a metal gives electrons to a nonmetal. Sodium has 1 valence electron it easily gives away. Chlorine needs 1 more electron. Sodium transfers its electron to chlorine, creating Na+ and Cl- ions that attract each other."},
+{q:"Water (H₂O) has a bent molecular shape because:",o:["Hydrogen atoms are very large","Oxygen has two lone pairs that push the hydrogen atoms","The molecule has no lone pairs","Oxygen forms triple bonds"],a:1,e:"Oxygen has 4 groups of electrons: 2 bonding pairs (with each H) and 2 lone pairs. The lone pairs repel the bonding pairs, pushing the hydrogens together — creating the bent (V-shape) of water."},
+{q:"What is the correct name for the compound N₂O₄?",o:["Nitrogen oxide","Nitrogen tetroxide","Dinitrogen tetroxide","Dinitrogen quadoxide"],a:2,e:"For covalent compounds (nonmetal + nonmetal), use Greek prefixes. N₂ = dinitrogen (di = 2). O₄ = tetroxide (tetra = 4, with -oxide ending). So: dinitrogen tetroxide."},
+{q:"What type of reaction is this? 2Na + Cl₂ → 2NaCl",o:["Decomposition","Single replacement","Synthesis (combination)","Combustion"],a:2,e:"Synthesis means 'put together.' Two separate substances (Na and Cl₂) combine into a single new substance (NaCl). The pattern is A + B → AB."},
+{q:"When balancing a chemical equation, you should only adjust the:",o:["Subscripts inside the formulas","Coefficients in front of the formulas","The elements themselves","The products only"],a:1,e:"Changing subscripts would change what compound you have (H₂O vs H₃O are different things!). You adjust only the coefficients (the big numbers in front) to balance the number of each type of atom on both sides."},
+{q:"Avogadro's number (one mole) is approximately:",o:["6.022 × 10²⁰","6.022 × 10²³","6.022 × 10²⁶","3.011 × 10²³"],a:1,e:"One mole = 6.022 × 10²³ particles. That's 602 billion trillion — necessary because atoms are so incredibly small that even tiny amounts contain enormous numbers of them."},
+{q:"The molar mass of water (H₂O) is 18 g/mol. How many grams is 3 moles of water?",o:["6 g","18 g","36 g","54 g"],a:3,e:"Grams = moles × molar mass = 3 × 18 = 54 grams. The molar mass is your conversion factor between moles and grams."},
+{q:"The limiting reagent in a reaction is:",o:["Always the most expensive chemical","The reactant that runs out first and stops the reaction","The product that forms in the smallest amount","The reactant that is present in the largest amount"],a:1,e:"Just like making sandwiches — if you run out of bread first, bread is the limiting factor. In chemistry, the limiting reagent is completely used up first, determining how much product can form."},
+{q:"Boyle's Law says that if you squeeze a gas (increase pressure) at constant temperature, the volume will:",o:["Double","Increase proportionally","Decrease (be halved if pressure doubles)","Stay the same"],a:2,e:"Boyle's Law: pressure and volume are inversely proportional (P₁V₁ = P₂V₂). Squeezing a balloon makes it smaller — pressure up, volume down. If pressure doubles, volume is cut in half."},
+{q:"Gas law calculations must use temperature in:",o:["Degrees Celsius (°C)","Degrees Fahrenheit (°F)","Kelvin (K)","Any unit works fine"],a:2,e:"Celsius can be negative (like -20°C), and you can't have negative volume or negative absolute temperature. Kelvin starts at absolute zero and is never negative. Always convert: K = °C + 273."},
+{q:"At STP (Standard Temperature and Pressure), 1 mole of any ideal gas occupies:",o:["1 liter","11.2 liters","22.4 liters","44.8 liters"],a:2,e:"At STP (0°C and 1 atm), exactly 1 mole of any ideal gas takes up 22.4 liters. This is called the molar volume of a gas at STP."},
+{q:"Molarity is defined as:",o:["Grams of solute per liter of solution","Moles of solute per liter of solution","Moles of solute per kg of solvent","Grams of solute per mL of solution"],a:1,e:"Molarity (M) = moles of solute ÷ liters of solution. It's the most common concentration unit. A 1 M NaCl solution has 1 mole of NaCl dissolved in enough water to make 1 liter total."},
+{q:"Oil and water don't mix. This is best explained by:",o:["Oil is heavier than water","Like dissolves like — oil is nonpolar, water is polar","Oil freezes at a higher temperature","Oil has a higher molarity"],a:1,e:"'Like dissolves like' is the key solubility rule. Water is polar (slightly charged). Oil is nonpolar (no charge separation). Polar solvents dissolve polar/ionic solutes. Nonpolar solvents dissolve nonpolar solutes. They are incompatible."},
+{q:"NaCl (table salt) completely breaks apart into Na⁺ and Cl⁻ ions when dissolved in water. NaCl is a:",o:["Nonelectrolyte","Weak electrolyte","Strong electrolyte","Covalent compound"],a:2,e:"Strong electrolytes dissociate 100% into ions in water. NaCl, HCl, and NaOH are examples. This is why saltwater conducts electricity."},
+{q:"A solution with pH 4 compared to a solution with pH 6 is:",o:["2 times more acidic","10 times more acidic","100 times more acidic","The same acidity"],a:2,e:"The pH scale is logarithmic — each step is 10 times. Two pH units difference = 10 × 10 = 100 times more acidic. pH 4 is 100 times more acidic than pH 6."},
+{q:"Which of the following is a STRONG acid?",o:["Acetic acid (vinegar, CH₃COOH)","Carbonic acid (H₂CO₃)","Hydrochloric acid (HCl)","Citric acid (lemon juice)"],a:2,e:"HCl is one of the six strong acids. Strong acids dissociate 100% in water. The six to memorize: HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄. Acetic acid, citric acid, and carbonic acid are all weak acids."},
+{q:"When an acid and a base react completely (neutralization), the products are:",o:["Two new acids","Water and a gas","A salt and water","Two new bases"],a:2,e:"Acid + base → salt + water. Example: HCl + NaOH → NaCl + H₂O. The H⁺ from the acid and the OH⁻ from the base combine to form water. The remaining ions form the salt."},
+{q:"A buffer is a solution that:",o:["Has a pH of exactly 7","Resists changes in pH when acid or base is added","Conducts electricity well","Completely neutralizes acids"],a:1,e:"Buffers resist pH change when small amounts of acid or base are added. Your blood (pH 7.35-7.45) is buffered. Buffers contain a weak acid and its conjugate base working together to neutralize added acid or base."},
+{q:"Alpha radiation can be stopped by:",o:["Nothing — it passes through everything","A sheet of paper or your skin","Aluminum foil","Thick lead or concrete"],a:1,e:"Alpha particles are large (helium nuclei) but have very low penetrating power. A sheet of paper or the outer layer of your skin stops them. However, alpha emitters inside your body (like inhaled radon gas) can cause serious damage."},
+{q:"A radioactive substance has a half-life of 10 years. You start with 80 grams. How much remains after 30 years?",o:["40 g","20 g","10 g","5 g"],a:2,e:"30 years ÷ 10 years per half-life = 3 half-lives. Amount = 80 × (1/2)³ = 80 × 1/8 = 10 grams. After each half-life, the amount is cut in half: 80 → 40 → 20 → 10."},
+{q:"Nuclear fission (used in nuclear power plants) involves:",o:["Small nuclei combining to form a larger one","A large nucleus splitting into smaller ones","Electrons being transferred between atoms","Neutrons changing into protons"],a:1,e:"Fission = splitting. A heavy nucleus like uranium-235 splits into smaller nuclei, releasing enormous amounts of energy. Nuclear power plants use controlled fission to generate electricity."},
+{q:"In nuclear reactions, the released energy comes from:",o:["Breaking and forming chemical bonds","The heat of the surrounding water","A small amount of mass being converted to energy (E = mc²)","The kinetic energy of the electrons"],a:2,e:"In nuclear reactions, the products have slightly less mass than the reactants. That 'missing' mass was converted to energy according to E = mc². Because c (speed of light) is so large, even a tiny mass produces a huge amount of energy."},
+{q:"Which type of radiation has the HIGHEST penetrating power?",o:["Alpha (α)","Beta (β)","Gamma (γ)","All are equal"],a:2,e:"Gamma rays are electromagnetic radiation (like super-powerful X-rays). They have no mass or charge and can penetrate most materials. Only thick lead or concrete blocks them. Alpha particles are easiest to stop, beta particles are medium, gamma is hardest."}
 ];
 
 const FD=[
-{cat:"Matter",q:"Element vs. compound?",a:"Element: one type of atom, can't be broken down. Compound: two+ elements chemically bonded in fixed ratio."},
-{cat:"Matter",q:"Physical vs. chemical change?",a:"Physical: identity stays same (melting, cutting). Chemical: new substance forms (burning, rusting)."},
-{cat:"Matter",q:"Signs of chemical change?",a:"Color change, gas bubbles, precipitate, temperature change, light/odor produced."},
-{cat:"Matter",q:"Exothermic vs. endothermic?",a:"Exothermic: releases heat (combustion). Endothermic: absorbs heat (melting ice, photosynthesis)."},
-{cat:"Matter",q:"Density formula?",a:"D = m/V. Water = 1.00 g/mL. Denser than water = sinks."},
-{cat:"Atoms",q:"Three subatomic particles?",a:"Proton (+1, nucleus, ~1 amu). Neutron (0, nucleus, ~1 amu). Electron (-1, cloud, ~0 amu)."},
-{cat:"Atoms",q:"Atomic number tells you?",a:"Number of protons. Defines the element. In neutral atom, protons = electrons."},
-{cat:"Atoms",q:"Mass number?",a:"Protons + neutrons. Different mass numbers = isotopes (same element, different neutrons)."},
-{cat:"Atoms",q:"What are valence electrons?",a:"Electrons in the outermost shell. Determine bonding and chemical behavior."},
-{cat:"Atoms",q:"Cation vs. anion?",a:"Cation: positive (lost electrons, metals). Anion: negative (gained electrons, nonmetals)."},
-{cat:"Periodic Table",q:"Metals vs. nonmetals?",a:"Metals: left/center, shiny, conduct, lose e-. Nonmetals: upper right, dull, poor conductors, gain/share e-."},
-{cat:"Periodic Table",q:"Alkali metals (Group 1A)?",a:"1 valence e-, very reactive, form +1 ions, react violently with water."},
-{cat:"Periodic Table",q:"Halogens (Group 7A)?",a:"7 valence e-, very reactive nonmetals, form -1 ions, diatomic (F2, Cl2, Br2, I2)."},
-{cat:"Periodic Table",q:"Noble gases (Group 8A)?",a:"Full outer shell (8 e-, except He with 2). Extremely unreactive."},
-{cat:"Periodic Table",q:"Atomic radius trend?",a:"Decreases across a period (more protons). Increases down a group (more shells)."},
-{cat:"Periodic Table",q:"Electronegativity trend?",a:"Increases across a period, decreases down a group. F is most electronegative."},
-{cat:"Periodic Table",q:"Diatomic elements?",a:"HOFBrINCl: H2, O2, F2, Br2, I2, N2, Cl2."},
-{cat:"Bonding",q:"Ionic bond?",a:"Metal + nonmetal. Electrons transferred. Ions attract. High melting point, conducts when dissolved."},
-{cat:"Bonding",q:"Covalent bond?",a:"Nonmetal + nonmetal. Electrons shared. Low melting point, doesn't conduct."},
-{cat:"Bonding",q:"Polar vs. nonpolar covalent?",a:"Polar: unequal sharing (different electronegativities). Nonpolar: equal sharing (same or similar atoms)."},
-{cat:"Bonding",q:"Octet rule?",a:"Atoms bond to achieve 8 valence electrons (full outer shell). H is an exception: needs only 2."},
-{cat:"Bonding",q:"VSEPR: 4 groups, 2 lone pairs?",a:"Bent shape (like H2O). Lone pairs push bonded atoms closer together."},
-{cat:"Naming",q:"Ionic compound naming?",a:"Metal name + nonmetal with -ide. Use Roman numeral for transition metals with multiple charges."},
-{cat:"Naming",q:"Covalent compound naming?",a:"Greek prefixes for both elements. Second element gets -ide. CO2 = carbon dioxide."},
-{cat:"Naming",q:"Greek prefixes 1-6?",a:"Mono, di, tri, tetra, penta, hexa."},
-{cat:"Naming",q:"Common polyatomic ions?",a:"NH4+ ammonium, NO3- nitrate, SO4 2- sulfate, CO3 2- carbonate, OH- hydroxide, PO4 3- phosphate."},
-{cat:"Naming",q:"Acid naming: -ate ion?",a:"-ate ion becomes -ic acid. Example: sulfate -> sulfuric acid (H2SO4)."},
-{cat:"Reactions",q:"Five reaction types?",a:"Synthesis (A+B->AB), Decomposition (AB->A+B), Single replacement, Double replacement, Combustion."},
-{cat:"Reactions",q:"Combustion products?",a:"Hydrocarbon + O2 -> CO2 + H2O. Always exothermic."},
-{cat:"Reactions",q:"Balancing equations rule?",a:"Change coefficients only, never subscripts. Conserve atoms of each element on both sides."},
-{cat:"Mole",q:"Avogadro's number?",a:"6.022 x 10^23 particles per mole."},
-{cat:"Mole",q:"Moles to grams?",a:"grams = moles x molar mass. Molar mass = sum of atomic masses in formula."},
-{cat:"Mole",q:"Limiting reagent?",a:"Reactant consumed first, limits product formed. Convert each to moles of product to find it."},
-{cat:"Mole",q:"Percent yield?",a:"(actual yield / theoretical yield) x 100. Always <= 100%."},
-{cat:"Gases",q:"Boyle's law?",a:"P1V1 = P2V2. Pressure and volume are inversely proportional (constant T)."},
-{cat:"Gases",q:"Charles's law?",a:"V1/T1 = V2/T2. Volume and temperature directly proportional (constant P). Must use Kelvin."},
-{cat:"Gases",q:"Ideal gas law?",a:"PV = nRT. R = 0.0821 L*atm/mol*K. Always use Kelvin."},
-{cat:"Gases",q:"Molar volume at STP?",a:"22.4 L per mole of any ideal gas at STP (0 C, 1 atm)."},
-{cat:"Solutions",q:"Molarity formula?",a:"M = moles solute / liters solution."},
-{cat:"Solutions",q:"Dilution equation?",a:"M1V1 = M2V2. Moles of solute don't change during dilution."},
-{cat:"Solutions",q:"Like dissolves like?",a:"Polar dissolves polar/ionic. Nonpolar dissolves nonpolar."},
-{cat:"Solutions",q:"Strong vs. weak electrolyte?",a:"Strong: 100% dissociation (NaCl, HCl). Weak: partial dissociation (CH3COOH). Non: none (sugar)."},
-{cat:"Acids & Bases",q:"Arrhenius acid vs. base?",a:"Acid: produces H+ in water. Base: produces OH- in water."},
-{cat:"Acids & Bases",q:"pH scale?",a:"pH = -log[H+]. <7 acidic, =7 neutral, >7 basic. Each unit = 10x change in [H+]."},
-{cat:"Acids & Bases",q:"Six strong acids?",a:"HCl, HBr, HI, HNO3, H2SO4, HClO4. Memorize these; everything else is weak."},
-{cat:"Acids & Bases",q:"Neutralization?",a:"Acid + base -> salt + water. HCl + NaOH -> NaCl + H2O."},
-{cat:"Acids & Bases",q:"What is a buffer?",a:"Resists pH change. Contains weak acid + conjugate base (or weak base + conjugate acid)."},
-{cat:"Nuclear",q:"Alpha particle?",a:"Helium nucleus (2p, 2n). Low penetration (paper). Mass # -4, atomic # -2."},
-{cat:"Nuclear",q:"Beta particle?",a:"High-speed electron from nucleus. Medium penetration (aluminum). Atomic # +1."},
-{cat:"Nuclear",q:"Gamma ray?",a:"High-energy photon. Highest penetration (lead/concrete). No mass or charge change."},
-{cat:"Nuclear",q:"Half-life formula?",a:"Remaining = initial x (1/2)^n, where n = total time / half-life."},
-{cat:"Nuclear",q:"Fission vs. fusion?",a:"Fission: large nucleus splits (power plants). Fusion: small nuclei combine (sun). Both release energy via E=mc2."}
+{cat:"Matter",q:"What is an element?",a:"A pure substance made of only ONE type of atom. Cannot be broken down further. Gold, oxygen, and carbon are elements."},
+{cat:"Matter",q:"What is a compound?",a:"A pure substance made of two or more elements CHEMICALLY BONDED in a fixed ratio. Water is always 2H:1O. Table salt is always 1Na:1Cl."},
+{cat:"Matter",q:"Physical vs. chemical change?",a:"Physical: substance looks different but IS the same thing (melting ice, cutting paper). Chemical: NEW substance forms (burning, rusting, cooking)."},
+{cat:"Matter",q:"Signs of a chemical change?",a:"Color change, bubbles of gas, solid forming in a liquid, big temperature change, light or new smell produced."},
+{cat:"Matter",q:"Exothermic vs. endothermic?",a:"Exothermic: releases heat to surroundings (combustion, hand warmers — feel hot). Endothermic: absorbs heat (melting ice, cold packs — feel cold)."},
+{cat:"Matter",q:"Density formula?",a:"D = m/V (mass divided by volume). Water = 1.00 g/mL. Denser than 1.00 = sinks. Less than 1.00 = floats."},
+{cat:"Atoms",q:"Three subatomic particles?",a:"Proton: +1 charge, in nucleus, ~1 amu. Neutron: 0 charge, in nucleus, ~1 amu. Electron: -1 charge, outside nucleus, nearly 0 mass."},
+{cat:"Atoms",q:"What is the atomic number?",a:"The number of protons. It defines the element — every carbon atom has 6 protons, no more, no less. In a neutral atom, protons = electrons."},
+{cat:"Atoms",q:"Mass number vs. atomic number?",a:"Mass number = protons + neutrons. Atomic number = protons only. Neutrons = mass number minus atomic number."},
+{cat:"Atoms",q:"What are isotopes?",a:"Atoms of the same element (same protons) but different numbers of neutrons. Carbon-12 has 6 neutrons. Carbon-14 has 8 neutrons. Both are carbon."},
+{cat:"Atoms",q:"What are valence electrons?",a:"Electrons in the outermost shell. They control all chemical bonding. Atoms want 8 valence electrons (the octet rule) to be stable."},
+{cat:"Atoms",q:"Cation vs. anion?",a:"Cation = positive ion (atom LOST electrons). Metals form cations. Anion = negative ion (atom GAINED electrons). Nonmetals form anions."},
+{cat:"Periodic Table",q:"Metals vs. nonmetals?",a:"Metals: left side, shiny, conduct electricity/heat, malleable, lose electrons. Nonmetals: upper right, dull, poor conductors, gain or share electrons."},
+{cat:"Periodic Table",q:"Alkali metals (Group 1A)?",a:"1 valence electron. Very reactive — react violently with water. Always form +1 ions. Examples: Li, Na, K."},
+{cat:"Periodic Table",q:"Halogens (Group 7A)?",a:"7 valence electrons. Very reactive — need 1 more electron. Form -1 ions. All are diatomic: F₂, Cl₂, Br₂, I₂."},
+{cat:"Periodic Table",q:"Noble gases (Group 8A)?",a:"8 valence electrons (full shell). Stable — almost never react. He, Ne, Ar, Kr, Xe. Think: already satisfied, no need to react."},
+{cat:"Periodic Table",q:"Diatomic elements?",a:"HOFBrINCl: H₂, O₂, F₂, Br₂, I₂, N₂, Cl₂. These 7 elements ALWAYS appear as two-atom molecules in their natural state."},
+{cat:"Periodic Table",q:"Atomic size trend?",a:"Gets SMALLER going left → right across a period (more protons pull electrons in). Gets LARGER going top → bottom in a group (more shells added)."},
+{cat:"Bonding",q:"Ionic bond?",a:"Metal + nonmetal. Electrons TRANSFERRED from metal to nonmetal. Creates + and - ions that attract. Example: Na gives e- to Cl → NaCl."},
+{cat:"Bonding",q:"Covalent bond?",a:"Nonmetal + nonmetal. Electrons SHARED between atoms. Example: 2 H atoms each share 1 electron with O → H₂O."},
+{cat:"Bonding",q:"Polar vs. nonpolar bond?",a:"Nonpolar: electrons shared equally (same atoms, like H₂). Polar: electrons shared unequally (different electronegativities, like H-O in water)."},
+{cat:"Bonding",q:"Why is water bent?",a:"Oxygen has 4 electron groups: 2 bonded to H atoms and 2 lone pairs. The 2 lone pairs push the hydrogens together → bent shape."},
+{cat:"Naming",q:"Naming ionic compounds?",a:"Metal name first, then nonmetal with -IDE ending. Add Roman numeral if metal has variable charges. NaCl = sodium chloride. FeCl₃ = iron(III) chloride."},
+{cat:"Naming",q:"Naming covalent compounds?",a:"Use Greek prefixes (mono, di, tri, tetra...) to count atoms. Second element gets -IDE ending. CO₂ = carbon dioxide. N₂O₄ = dinitrogen tetroxide."},
+{cat:"Naming",q:"Common polyatomic ions?",a:"NH₄⁺ ammonium | OH⁻ hydroxide | NO₃⁻ nitrate | SO₄²⁻ sulfate | CO₃²⁻ carbonate | PO₄³⁻ phosphate | HCO₃⁻ bicarbonate"},
+{cat:"Reactions",q:"5 reaction types?",a:"Synthesis: A+B→AB. Decomposition: AB→A+B. Single replacement: A+BC→AC+B. Double replacement: AB+CD→AD+CB. Combustion: fuel+O₂→CO₂+H₂O."},
+{cat:"Reactions",q:"What is combustion?",a:"A substance (fuel) reacts with oxygen (O₂) and releases energy as heat/light. ALWAYS produces CO₂ and H₂O. Always exothermic. Burning is combustion."},
+{cat:"Reactions",q:"Balancing equations — golden rule?",a:"Change only COEFFICIENTS (big numbers in front), NEVER subscripts (small numbers inside formulas). Subscripts change the compound identity!"},
+{cat:"Mole",q:"What is a mole?",a:"The chemist's counting unit. 1 mole = 6.022 × 10²³ particles. Like a dozen (12) but much bigger. Used because atoms are incredibly tiny."},
+{cat:"Mole",q:"Grams ↔ moles conversion?",a:"Moles = grams ÷ molar mass. Grams = moles × molar mass. Molar mass (g/mol) = sum of all atomic masses in the formula."},
+{cat:"Mole",q:"Limiting reagent?",a:"The reactant that RUNS OUT FIRST, limiting how much product forms. Like running out of bread when making sandwiches. Convert each reactant to moles of product — the smaller result is limiting."},
+{cat:"Mole",q:"Percent yield?",a:"(actual yield ÷ theoretical yield) × 100. Theoretical = calculated from stoichiometry. Actual = measured in lab. Always ≤ 100%."},
+{cat:"Gases",q:"Boyle's Law?",a:"Pressure and volume are INVERSELY proportional (constant T). P₁V₁ = P₂V₂. Squeeze a balloon = pressure up, volume down."},
+{cat:"Gases",q:"Charles's Law?",a:"Volume and temperature are DIRECTLY proportional (constant P). V₁/T₁ = V₂/T₂. Heat a gas = it expands (hot air balloon). ALWAYS use Kelvin!"},
+{cat:"Gases",q:"Ideal Gas Law?",a:"PV = nRT. P = pressure (atm), V = volume (L), n = moles, R = 0.0821 L·atm/mol·K, T = Kelvin. Use Kelvin always!"},
+{cat:"Gases",q:"Molar volume at STP?",a:"At STP (0°C and 1 atm), 1 mole of any ideal gas = 22.4 liters."},
+{cat:"Solutions",q:"Solute vs. solvent?",a:"Solute: the thing being dissolved (salt in saltwater). Solvent: the thing doing the dissolving (water in saltwater). Water = universal solvent."},
+{cat:"Solutions",q:"Molarity?",a:"M = moles of solute ÷ liters of solution. A 2 M NaCl solution has 2 moles of NaCl per liter. Most common concentration unit."},
+{cat:"Solutions",q:"'Like dissolves like'?",a:"Polar solvents dissolve polar/ionic solutes. Nonpolar solvents dissolve nonpolar solutes. Oil (nonpolar) won't mix with water (polar)."},
+{cat:"Solutions",q:"Strong vs. weak electrolyte?",a:"Strong: 100% dissociates into ions (NaCl, HCl) — conducts well. Weak: partially dissociates (vinegar). Nonelectrolyte: no ions form (sugar) — doesn't conduct."},
+{cat:"Acids & Bases",q:"Acid vs. base (Arrhenius)?",a:"Acid: produces H⁺ ions in water (tastes sour, turns blue litmus red, pH < 7). Base: produces OH⁻ in water (tastes bitter, slippery feel, pH > 7)."},
+{cat:"Acids & Bases",q:"pH scale?",a:"0–14 scale. pH 7 = neutral. Below 7 = acidic. Above 7 = basic. Each unit = 10× change. pH 3 is 100× more acidic than pH 5."},
+{cat:"Acids & Bases",q:"Six strong acids?",a:"HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄. These dissociate 100% in water. Everything else is a WEAK acid."},
+{cat:"Acids & Bases",q:"Neutralization?",a:"Acid + base → salt + water. HCl + NaOH → NaCl + H₂O. This is how antacids work — base neutralizes stomach acid."},
+{cat:"Acids & Bases",q:"What is a buffer?",a:"Resists pH change when small amounts of acid or base are added. Your blood is a buffer (stays pH 7.35-7.45). Contains a weak acid + conjugate base."},
+{cat:"Nuclear",q:"Three types of radiation?",a:"Alpha (α): helium nucleus, low penetration (paper stops it). Beta (β): electron from nucleus, medium (aluminum stops it). Gamma (γ): energy wave, highest penetration (needs lead)."},
+{cat:"Nuclear",q:"What is half-life?",a:"Time for HALF of a radioactive sample to decay. After 3 half-lives, (1/2)³ = 1/8 remains. Carbon-14 half-life ≈ 5,730 years (used for dating)."},
+{cat:"Nuclear",q:"Fission vs. fusion?",a:"Fission: large nucleus SPLITS into smaller ones (nuclear power plants, U-235). Fusion: small nuclei COMBINE into one (the Sun, H → He). Both release huge energy."},
+{cat:"Nuclear",q:"Where does nuclear energy come from?",a:"Products weigh slightly LESS than reactants. The missing mass converts to energy via E = mc². A tiny mass = enormous energy because c (speed of light) is huge."}
 ];
 
 const SA=[
-{q:"Classify the following as element, compound, homogeneous mixture, or heterogeneous mixture: pure gold, table salt, air, Italian salad dressing. Explain your reasoning.",
+{q:"In your own words, explain the difference between an element, a compound, and a mixture. Give one everyday example of each.",
 concepts:[
-  {term:"gold = element",synonyms:["gold.*element","au.*element","one.*type.*atom"],weight:2},
-  {term:"salt = compound",synonyms:["salt.*compound","nacl.*compound","two.*element.*bond","fixed ratio"],weight:2},
-  {term:"air = homogeneous",synonyms:["air.*homogeneous","air.*solution","uniform"],weight:2},
-  {term:"dressing = heterogeneous",synonyms:["dressing.*heterogeneous","salad.*heterogeneous","not uniform","separate","distinct"],weight:2}
-],model:"Pure gold is an element (one type of atom, Au). Table salt (NaCl) is a compound (two elements, Na and Cl, chemically bonded in a fixed ratio). Air is a homogeneous mixture (uniform blend of N2, O2, and other gases). Italian salad dressing is a heterogeneous mixture (visible layers of oil and vinegar that are not uniformly mixed)."},
-{q:"Compare ionic and covalent bonds. Include how they form, what types of elements are involved, and at least two differences in the properties of ionic vs. covalent compounds.",
+  {term:"element: one type of atom",synonyms:["one.*type","single.*atom","can.*not.*broken","cannot.*broken"],weight:2},
+  {term:"compound: chemically bonded",synonyms:["bond","compoun","fixed.*ratio","chemical.*combin"],weight:2},
+  {term:"mixture: physically combined / variable",synonyms:["mixture","mixture","physical","variable","not.*bond","separat"],weight:2},
+  {term:"examples given",synonyms:["gold|oxygen|iron|carbon|water|salt|nacl|h2o|air|blood|sand|saltwater|coffee|trail|brass"],weight:2}
+],model:"An element is a pure substance made of only one type of atom and cannot be broken down further by chemical means — gold (Au) is an example. A compound is a pure substance made of two or more elements that are chemically bonded together in a fixed ratio — water (H₂O) is always 2 hydrogen atoms bonded to 1 oxygen. A mixture is two or more substances combined physically, not chemically — they can be separated and have variable composition. Saltwater is a mixture: the salt and water aren't bonded, just mixed."},
+{q:"Explain ionic and covalent bonds. What types of elements form each? How do electrons behave differently? Give one example of each type of compound.",
 concepts:[
-  {term:"ionic: electron transfer",synonyms:["ionic.*transfer","metal.*nonmetal.*transfer","ion.*attract"],weight:2},
-  {term:"covalent: electron sharing",synonyms:["covalent.*shar","nonmetal.*nonmetal.*shar"],weight:2},
-  {term:"ionic properties",synonyms:["high.*melt","conduct.*dissolv","crystal","solid"],weight:2},
-  {term:"covalent properties",synonyms:["low.*melt","not.*conduct","gas.*liquid","soft"],weight:2}
-],model:"Ionic bonds form when a metal transfers electrons to a nonmetal, creating oppositely charged ions that attract. Ionic compounds have high melting points, form crystalline solids, and conduct electricity when dissolved or melted. Covalent bonds form when two nonmetals share electrons. Covalent compounds have lower melting points, can be gases, liquids, or soft solids, and do not conduct electricity."},
-{q:"Explain the mole concept. What is Avogadro's number? How do you convert between grams and moles? Calculate the grams in 3.0 moles of NaCl (molar mass = 58.5 g/mol).",
+  {term:"ionic: metal + nonmetal",synonyms:["metal.*nonmetal","metal.*nonmetal"],weight:1},
+  {term:"ionic: electrons transferred",synonyms:["transfer","give.*electron","lost.*electron","taken"],weight:2},
+  {term:"covalent: nonmetal + nonmetal",synonyms:["nonmetal.*nonmetal","two.*nonmetal"],weight:1},
+  {term:"covalent: electrons shared",synonyms:["share","shar"],weight:2},
+  {term:"example ionic",synonyms:["nacl|salt|mgo|cacl|ionic.*example"],weight:1},
+  {term:"example covalent",synonyms:["h2o|water|co2|ch4|covalent.*example"],weight:1}
+],model:"Ionic bonds form between a metal and a nonmetal. The metal gives (transfers) electrons to the nonmetal, creating positively and negatively charged ions that attract each other. Table salt (NaCl) is an ionic compound — sodium gives its electron to chlorine. Covalent bonds form between two nonmetals. The atoms share electrons rather than transferring them. Water (H₂O) is a covalent compound — hydrogen and oxygen share electrons."},
+{q:"What is the mole, and why do chemists use it? What is Avogadro's number? If the molar mass of NaCl is 58.5 g/mol, how many grams are in 2.0 moles of NaCl?",
 concepts:[
-  {term:"mole = counting unit",synonyms:["counting","chemist.*unit","amount"],weight:1},
-  {term:"Avogadro's number",synonyms:["6.022","avogadro","10.*23"],weight:2},
-  {term:"grams = moles x molar mass",synonyms:["moles.*molar mass","grams.*divide","grams.*multiply"],weight:2},
-  {term:"calculation: 175.5 g",synonyms:["175","3.*58"],weight:2}
-],model:"The mole is the chemist's counting unit, connecting the atomic scale to measurable quantities. One mole = 6.022 x 10^23 particles (Avogadro's number). To convert: grams = moles x molar mass, and moles = grams / molar mass. For 3.0 moles of NaCl: 3.0 x 58.5 g/mol = 175.5 g."},
-{q:"State Boyle's law and Charles's law. For each, describe the relationship between variables and give a real-life example.",
+  {term:"mole = counting unit",synonyms:["count","unit","amount"],weight:1},
+  {term:"atoms/molecules are tiny",synonyms:["small|tiny|microscopic|cannot see"],weight:1},
+  {term:"Avogadro's number: 6.022 × 10²³",synonyms:["6.022","avogadro","10.*23"],weight:2},
+  {term:"grams = moles × molar mass",synonyms:["moles.*molar","multiply","molar.*mass"],weight:2},
+  {term:"answer: 117 g",synonyms:["117","2.*58"],weight:2}
+],model:"The mole is the chemist's counting unit — a way to group enormous numbers of tiny atoms and molecules into measurable quantities. One mole = 6.022 × 10²³ particles (Avogadro's number). We use it because atoms are so small that even a tiny sample contains billions of trillions of them. To convert moles to grams: grams = moles × molar mass. For 2.0 moles of NaCl: 2.0 × 58.5 = 117 grams."},
+{q:"Describe the pH scale. What does it measure? What makes a solution acidic vs. basic? Why is a difference of 2 pH units more significant than it sounds?",
 concepts:[
-  {term:"Boyle's: P inversely proportional to V",synonyms:["boyle","p.*v.*inverse","p1v1.*p2v2","pressure.*volume"],weight:2},
-  {term:"Charles's: V directly proportional to T",synonyms:["charles","v.*t.*direct","v1.*t1.*v2.*t2","volume.*temperature"],weight:2},
-  {term:"Boyle example",synonyms:["balloon.*squeeze","syringe","compress","diver"],weight:1},
-  {term:"Charles example",synonyms:["hot air balloon","tire.*cold","expand.*heat","balloon.*warm"],weight:1},
-  {term:"Kelvin required",synonyms:["kelvin","absolute","273"],weight:1}
-],model:"Boyle's law: at constant temperature, pressure and volume are inversely proportional (P1V1 = P2V2). Example: squeezing a syringe reduces volume and increases pressure. Charles's law: at constant pressure, volume and temperature are directly proportional (V1/T1 = V2/T2). Example: a hot air balloon rises because heating the air inside increases volume. Gas law calculations always require temperature in Kelvin."},
-{q:"Explain the pH scale. What makes a solution acidic vs. basic? How does pH relate to hydrogen ion concentration? What happens during a neutralization reaction?",
+  {term:"pH measures acidity / H+ concentration",synonyms:["h\\+|h\\+|hydrogen.*ion|acidity|acid"],weight:2},
+  {term:"0-14 scale",synonyms:["0.*14|zero.*fourteen|scale"],weight:1},
+  {term:"below 7 = acidic, above 7 = basic",synonyms:["below.*7.*acid|less.*7.*acid|above.*7.*bas|greater.*7.*bas"],weight:2},
+  {term:"logarithmic / 10× per unit",synonyms:["log|10.*times|10.*fold|tenfold|multiply.*10|factor of 10"],weight:2},
+  {term:"2 units = 100×",synonyms:["100.*times|100x|hundredfold|10.*10"],weight:1}
+],model:"The pH scale measures how acidic or basic a solution is, specifically the concentration of hydrogen ions (H⁺). The scale runs from 0 to 14. Below 7 is acidic (more H⁺), exactly 7 is neutral, and above 7 is basic (fewer H⁺). The scale is logarithmic — every 1 pH unit represents a 10-fold change in hydrogen ion concentration. So a difference of 2 pH units (like pH 4 vs pH 6) is not twice as acidic but 10 × 10 = 100 times as acidic. Lemon juice (pH ~2) is 100,000 times more acidic than coffee (pH ~5)."},
+{q:"Compare alpha (α), beta (β), and gamma (γ) radiation. For each, describe: what the particle or wave is, its charge, how well it penetrates materials, and what stops it.",
 concepts:[
-  {term:"pH scale 0-14",synonyms:["0.*14","ph.*scale","measure"],weight:1},
-  {term:"acidic < 7, basic > 7",synonyms:["less.*7.*acid","greater.*7.*bas","7.*neutral"],weight:2},
-  {term:"pH = -log[H+]",synonyms:["log","hydrogen.*ion","\\[h\\+\\]","h.*concentrat"],weight:2},
-  {term:"10-fold change",synonyms:["10.*fold","10.*times","tenfold","factor.*10"],weight:1},
-  {term:"neutralization: acid + base -> salt + water",synonyms:["neutraliz","acid.*base.*salt.*water","acid.*base.*water"],weight:2}
-],model:"The pH scale runs from 0 to 14. Below 7 is acidic, exactly 7 is neutral, above 7 is basic. pH = -log[H+], so lower pH means higher hydrogen ion concentration. Each pH unit represents a 10-fold change in [H+]. During neutralization, an acid reacts with a base to produce a salt and water (e.g., HCl + NaOH -> NaCl + H2O)."},
-{q:"Compare alpha, beta, and gamma radiation in terms of composition, charge, penetrating power, and what stops each type.",
+  {term:"alpha: helium nucleus / +2",synonyms:["helium|2 proton|alpha.*\\+2|alpha.*positive"],weight:2},
+  {term:"alpha: paper stops it",synonyms:["paper|skin|alpha.*low|alpha.*weak"],weight:1},
+  {term:"beta: electron / -1",synonyms:["electron|beta.*\\-1|beta.*negative|neutron.*proton"],weight:2},
+  {term:"beta: aluminum stops it",synonyms:["aluminum|aluminium|beta.*medium"],weight:1},
+  {term:"gamma: photon / electromagnetic",synonyms:["photon|electromagnetic|wave|gamma.*energy|gamma.*ray"],weight:2},
+  {term:"gamma: lead / concrete stops it",synonyms:["lead|concrete|gamma.*highest|gamma.*most"],weight:1}
+],model:"Alpha (α) radiation consists of helium nuclei (2 protons + 2 neutrons), with a +2 charge. It has the lowest penetrating power and is stopped by a sheet of paper or the outer layer of skin. Beta (β) radiation is a high-speed electron ejected from the nucleus, with a -1 charge. It has medium penetrating power and is stopped by aluminum foil. Gamma (γ) radiation is high-energy electromagnetic radiation (like a very powerful X-ray), with no mass or charge. It has the highest penetrating power and requires thick lead or concrete to stop it."},
+{q:"Explain what a limiting reagent is. Use an everyday analogy to illustrate the concept. In the reaction 2H₂ + O₂ → 2H₂O, if you start with 4 moles of H₂ and 1 mole of O₂, which is the limiting reagent, and how many moles of water will form?",
 concepts:[
-  {term:"alpha: helium nucleus",synonyms:["alpha.*helium","alpha.*2 proton","alpha.*4.*2"],weight:2},
-  {term:"alpha: low penetration / paper",synonyms:["alpha.*paper","alpha.*low","alpha.*skin"],weight:1},
-  {term:"beta: electron",synonyms:["beta.*electron","beta.*-1","neutron.*proton"],weight:2},
-  {term:"beta: medium / aluminum",synonyms:["beta.*aluminum","beta.*medium"],weight:1},
-  {term:"gamma: photon / highest",synonyms:["gamma.*photon","gamma.*high","gamma.*lead","gamma.*concrete"],weight:2},
-  {term:"gamma: no mass or charge change",synonyms:["gamma.*no mass","gamma.*no charge","gamma.*no change"],weight:1}
-],model:"Alpha particles are helium nuclei (2 protons, 2 neutrons, +2 charge). They have the lowest penetrating power and are stopped by paper or skin. Beta particles are high-speed electrons (-1 charge) emitted when a neutron converts to a proton. They have medium penetrating power and are stopped by aluminum foil. Gamma rays are high-energy photons with no mass or charge. They have the highest penetrating power and require thick lead or concrete to stop."},
-{q:"Explain what a limiting reagent is and why it matters. If you have 4 moles of H2 and 1 mole of O2 reacting via 2H2 + O2 -> 2H2O, which is the limiting reagent and how many moles of water form?",
-concepts:[
-  {term:"limiting reagent definition",synonyms:["runs out","consumed first","limits.*product","determines"],weight:2},
-  {term:"mole ratio from equation",synonyms:["mole ratio","coefficient","balanced equation","stoichiometr"],weight:2},
-  {term:"O2 is limiting",synonyms:["o2.*limit","oxygen.*limit"],weight:2},
-  {term:"2 moles H2O",synonyms:["2 mol.*h2o","2 mol.*water","two mol"],weight:2}
-],model:"The limiting reagent is the reactant consumed first, which determines the maximum product. The other reactant is in excess. From 2H2 + O2 -> 2H2O: 1 mol O2 requires 2 mol H2 (by the 2:1 ratio) and produces 2 mol H2O. We have 4 mol H2 but only 1 mol O2. O2 is the limiting reagent because it runs out first (it can only react with 2 of the 4 mol H2). The reaction produces 2 moles of H2O, with 2 moles of H2 left over."},
-{q:"Describe how natural selection can change the genetic makeup of a population over time.",
-concepts:[
-  {term:"fission: large splits",synonyms:["fission","large.*split","heavy.*nucleus"],weight:2},
-  {term:"fusion: small combine",synonyms:["fusion","small.*combine","light.*nuclei","join"],weight:2},
-  {term:"both release energy",synonyms:["both.*energy","release.*energy","e.*=.*mc"],weight:2},
-  {term:"mass to energy",synonyms:["mass.*energy","mass.*convert","missing mass","mass defect"],weight:1},
-  {term:"examples",synonyms:["sun","power plant","uranium","hydrogen","star"],weight:1}
-],model:"Nuclear fission splits a large, heavy nucleus (like U-235) into smaller nuclei, releasing energy. It is used in nuclear power plants and atomic weapons. Nuclear fusion combines small, light nuclei (like hydrogen) into a larger nucleus (helium), releasing even more energy per gram. Fusion powers the sun and stars. Both processes release energy because the products have less mass than the reactants; the missing mass converts to energy via E = mc2. Fusion requires extreme temperatures to overcome the repulsion between positively charged nuclei."}
+  {term:"limiting reagent definition",synonyms:["runs out|used up|consumed first|limits.*product|determines.*amount"],weight:2},
+  {term:"analogy used",synonyms:["sandwich|bread|cheese|recipe|ingredient|cookie|bun|hot dog|pizza"],weight:1},
+  {term:"mole ratio 2:1",synonyms:["2.*1.*ratio|2.*mol.*h2|1.*mol.*o2|coefficient"],weight:2},
+  {term:"O₂ is limiting",synonyms:["o2.*limit|oxygen.*limit"],weight:2},
+  {term:"2 moles water",synonyms:["2 mol.*water|2 mol.*h2o|two.*water|two.*mole"],weight:2}
+],model:"The limiting reagent is the reactant that runs out first, stopping the reaction and limiting how much product can form. Think of making sandwiches: if you have 8 slices of bread but only 2 slices of cheese, you can make only 2 sandwiches — cheese is the limiting reagent. In 2H₂ + O₂ → 2H₂O: the equation requires 2 moles of H₂ for every 1 mole of O₂. We have 4 moles H₂ and 1 mole O₂. One mole of O₂ can only react with 2 moles of H₂ (from the 2:1 ratio), producing 2 moles of H₂O. O₂ is the limiting reagent. Two moles of H₂ are left over (in excess)."}
 ];
-// fix last SA question text
-SA[SA.length-1].q="Compare nuclear fission and nuclear fusion. How does each produce energy? Give an example of where each occurs.";
 
+// ---- QUIZ ----
 let qI=0,qS=0,qDone=false;
-function qRender(){const d=QD[qI];let h='<div class="quiz-question"><p>'+(qI+1)+'. '+d.q+'</p><div class="quiz-options">';d.o.forEach((o,i)=>{h+='<label id="qo'+i+'"><input type="radio" name="q" value="'+i+'"> '+o+'</label>';});h+='</div><div class="quiz-explanation" id="qExp">'+d.e+'</div></div>';document.getElementById('qArea').innerHTML=h;document.getElementById('qCur').textContent=qI+1;document.getElementById('qTot').textContent=QD.length;document.getElementById('qBar').style.width=(qI/QD.length*100)+'%';document.getElementById('qSubmit').style.display='inline-block';document.getElementById('qNext').style.display='none';qDone=false;}
-function qCheck(){if(qDone)return;const s=document.querySelector('input[name="q"]:checked');if(!s)return;qDone=true;const v=+s.value,d=QD[qI];document.querySelectorAll('.quiz-options label').forEach(l=>l.style.pointerEvents='none');if(v===d.a){qS++;document.getElementById('qo'+v).classList.add('correct');}else{document.getElementById('qo'+v).classList.add('incorrect');document.getElementById('qo'+d.a).classList.add('correct');}document.getElementById('qScore').textContent=qS;document.getElementById('qExp').style.display='block';document.getElementById('qSubmit').style.display='none';if(qI<QD.length-1)document.getElementById('qNext').style.display='inline-block';else{document.getElementById('qBar').style.width='100%';setTimeout(()=>{const p=Math.round(qS/QD.length*100);document.getElementById('qArea').innerHTML='<div class="quiz-result"><h3>Quiz Complete!</h3><p style="font-size:1.2rem;margin-bottom:.5rem">'+qS+' / '+QD.length+' ('+p+'%)</p><p style="color:var(--text-muted)">'+(p>=80?'Excellent work!':p>=60?'Good effort. Review the sections you missed.':'Keep studying and try again.')+'</p></div>';document.getElementById('qNext').style.display='none';},1200);}}
+function qRender(){
+  const d=QD[qI];
+  let h='<div class="qquestion"><p>'+(qI+1)+'. '+d.q+'</p><div class="qoptions">';
+  d.o.forEach((o,i)=>{h+='<label id="qo'+i+'"><input type="radio" name="q" value="'+i+'"> '+o+'</label>';});
+  h+='</div><div class="qexp" id="qExp">'+d.e+'</div></div>';
+  document.getElementById('qArea').innerHTML=h;
+  document.getElementById('qCur').textContent=qI+1;
+  document.getElementById('qTot').textContent=QD.length;
+  document.getElementById('qBar').style.width=(qI/QD.length*100)+'%';
+  document.getElementById('qSubmit').style.display='inline-block';
+  document.getElementById('qNext').style.display='none';
+  qDone=false;
+}
+function qCheck(){
+  if(qDone)return;
+  const s=document.querySelector('input[name="q"]:checked');
+  if(!s)return;
+  qDone=true;
+  const v=+s.value,d=QD[qI];
+  document.querySelectorAll('.qoptions label').forEach(l=>l.style.pointerEvents='none');
+  if(v===d.a){qS++;document.getElementById('qo'+v).classList.add('correct');}
+  else{document.getElementById('qo'+v).classList.add('incorrect');document.getElementById('qo'+d.a).classList.add('correct');}
+  document.getElementById('qScore').textContent=qS;
+  document.getElementById('qExp').style.display='block';
+  document.getElementById('qSubmit').style.display='none';
+  if(qI<QD.length-1)document.getElementById('qNext').style.display='inline-block';
+  else{
+    document.getElementById('qBar').style.width='100%';
+    setTimeout(()=>{
+      const p=Math.round(qS/QD.length*100);
+      document.getElementById('qArea').innerHTML='<div class="qresult"><h3>Quiz Complete!</h3><p style="font-size:1.2rem;margin-bottom:0.5rem">'+qS+' / '+QD.length+' correct ('+p+'%)</p><p style="color:var(--muted)">'+(p>=80?'Excellent work — you know your chemistry!':p>=60?'Good effort. Review the sections you missed and try again.':'Keep studying the guide and give it another shot!')+'</p></div>';
+      document.getElementById('qNext').style.display='none';
+    },1000);
+  }
+}
 function qAdvance(){qI++;qRender();}
+
+// ---- FLASHCARDS ----
 let fcF=[...FD],fcI=0;
-function fcRenderFilters(){const cats=[...new Set(FD.map(c=>c.cat))];let h='<button class="fc-filter-btn active" onclick="fcFilter(\'all\',this)">All</button>';cats.forEach(c=>{h+='<button class="fc-filter-btn" onclick="fcFilter(\''+c+'\',this)">'+c+'</button>';});document.getElementById('fcFilters').innerHTML=h;}
-function fcFilter(cat,btn){fcF=cat==='all'?[...FD]:FD.filter(c=>c.cat===cat);fcI=0;document.querySelectorAll('.fc-filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fcRender();}
-function fcRender(){if(!fcF.length)return;const c=fcF[fcI];document.getElementById('fcCat').textContent=c.cat;document.getElementById('fcQ').textContent=c.q;document.getElementById('fcA').textContent=c.a;document.getElementById('fcIdx').textContent=fcI+1;document.getElementById('fcTot').textContent=fcF.length;document.getElementById('fcCard').classList.remove('flipped');}
+function fcRenderFilters(){
+  const cats=[...new Set(FD.map(c=>c.cat))];
+  let h='<button class="fc-btn active" onclick="fcFilter(\'all\',this)">All</button>';
+  cats.forEach(c=>{h+='<button class="fc-btn" onclick="fcFilter(\''+c+'\',this)">'+c+'</button>';});
+  document.getElementById('fcFilters').innerHTML=h;
+}
+function fcFilter(cat,btn){
+  fcF=cat==='all'?[...FD]:FD.filter(c=>c.cat===cat);
+  fcI=0;
+  document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  fcRender();
+}
+function fcRender(){
+  if(!fcF.length)return;
+  const c=fcF[fcI];
+  document.getElementById('fcCat').textContent=c.cat;
+  document.getElementById('fcQ').textContent=c.q;
+  document.getElementById('fcA').textContent=c.a;
+  document.getElementById('fcIdx').textContent=fcI+1;
+  document.getElementById('fcTot').textContent=fcF.length;
+  document.getElementById('fcCard').classList.remove('flipped');
+}
 function fcFlip(){document.getElementById('fcCard').classList.toggle('flipped');}
 function fcNext(){fcI=(fcI+1)%fcF.length;fcRender();}
 function fcPrev(){fcI=(fcI-1+fcF.length)%fcF.length;fcRender();}
-function saRender(){let h='';SA.forEach((item,i)=>{h+='<div class="sa-question"><p class="sa-prompt">'+(i+1)+'. '+item.q+'</p><textarea id="saI'+i+'" placeholder="Type your answer here..."></textarea><div class="sa-feedback" id="saFb'+i+'"><div class="sa-score-bar"><div class="sa-score-fill" id="saFill'+i+'"></div></div><div class="sa-score-text" id="saPct'+i+'"></div><div class="sa-tags" id="saTags'+i+'"></div><button class="sa-model-toggle" onclick="saToggle('+i+')">Show Model Answer</button><div class="sa-model-answer" id="saModel'+i+'">'+item.model+'</div></div></div>';});document.getElementById('saArea').innerHTML=h;}
-function saGradeAll(){SA.forEach((item,i)=>{const input=document.getElementById('saI'+i).value.toLowerCase();let earned=0,total=0,tags='';const wc=input.trim().split(/\s+/).filter(w=>w).length;item.concepts.forEach(c=>{total+=c.weight;let found=false;for(let s of c.synonyms){if(s.includes('.*')){try{if(new RegExp(s,'i').test(input)){found=true;break;}}catch(e){}}else if(input.includes(s.toLowerCase())){found=true;break;}}if(found){earned+=c.weight;tags+='<span class="sa-tag hit">'+c.term+'</span>';}else{tags+='<span class="sa-tag miss">'+c.term+'</span>';}});let bonus=0;if(wc>40)bonus=Math.min(0.1,((wc-40)/100)*0.1);let pct=Math.min(100,Math.round((earned/total+bonus)*100));const fill=document.getElementById('saFill'+i);fill.style.width=pct+'%';fill.style.background=pct>=70?'#4caf50':pct>=40?'#ff9800':'#e57373';document.getElementById('saPct'+i).textContent=pct+'% concept match';document.getElementById('saTags'+i).innerHTML=tags;document.getElementById('saFb'+i).style.display='block';});}
-function saToggle(i){const el=document.getElementById('saModel'+i);el.style.display=el.style.display==='block'?'none':'block';}
-window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('visible',window.scrollY>400);});
-qRender();fcRenderFilters();fcRender();saRender();
-</script>
-</div>
 
-  <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
-  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;">⚠️ Important Notice</div>
-  <p style="margin: 0 0 10px 0;">These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
-  <p style="margin: 0 0 10px 0;">While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
-  <p style="margin: 0 0 10px 0;">No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
-  <p style="margin: 0 0 10px 0;">These materials are not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher. All content represents the independent work and ideas of the author.</p>
-  <p style="margin: 0;">This resource is provided "as is" without warranty of any kind, express or implied. The author assumes no liability for any errors or for any actions taken based on the information provided here.</p>
-</div>
+// ---- SHORT ANSWER ----
+function saRender(){
+  let h='';
+  SA.forEach((item,i)=>{
+    h+='<div class="sa-q"><p class="prompt">'+(i+1)+'. '+item.q+'</p><textarea id="saI'+i+'" placeholder="Write your answer here..."></textarea><div class="sa-fb" id="saFb'+i+'"><div class="sa-bar-wrap"><div class="sa-bar-fill" id="saFill'+i+'"></div></div><div class="sa-pct" id="saPct'+i+'"></div><div class="sa-tags" id="saTags'+i+'"></div><button class="sa-toggle" onclick="saToggle('+i+')">Show Model Answer</button><div class="sa-model" id="saModel'+i+'">'+item.model+'</div></div></div>';
+  });
+  document.getElementById('saArea').innerHTML=h;
+}
+function saGradeAll(){
+  SA.forEach((item,i)=>{
+    const input=document.getElementById('saI'+i).value.toLowerCase();
+    let earned=0,total=0,tags='';
+    item.concepts.forEach(c=>{
+      total+=c.weight;
+      let found=false;
+      for(let s of c.synonyms){
+        if(s.includes('.*')||s.includes('|')){
+          try{if(new RegExp(s,'i').test(input)){found=true;break;}}catch(e){}
+        }else if(input.includes(s.toLowerCase())){found=true;break;}
+      }
+      if(found){earned+=c.weight;tags+='<span class="sa-tag hit">✓ '+c.term+'</span>';}
+      else{tags+='<span class="sa-tag miss">✗ '+c.term+'</span>';}
+    });
+    const wc=input.trim().split(/\s+/).filter(w=>w).length;
+    let bonus=wc>40?Math.min(0.1,(wc-40)/100*0.1):0;
+    let pct=Math.min(100,Math.round((earned/total+bonus)*100));
+    const fill=document.getElementById('saFill'+i);
+    fill.style.width=pct+'%';
+    fill.style.background=pct>=70?'#3da05e':pct>=40?'#e8a020':'#d9534f';
+    document.getElementById('saPct'+i).textContent=pct+'% — key concepts covered';
+    document.getElementById('saTags'+i).innerHTML=tags;
+    document.getElementById('saFb'+i).style.display='block';
+  });
+}
+function saToggle(i){
+  const el=document.getElementById('saModel'+i);
+  el.style.display=el.style.display==='block'?'none':'block';
+}
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('btt').classList.toggle('visible',window.scrollY>400);
+});
+
+qRender();
+fcRenderFilters();
+fcRender();
+saRender();
+</script>
 </body>
 </html>
