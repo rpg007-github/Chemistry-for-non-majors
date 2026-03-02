@@ -157,9 +157,40 @@
     table { font-size:0.84rem; }
     td, th { padding:0.4rem 0.55rem; }
   }
+
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 
 <div class="hero">
   <h1>Chemistry for Non-Majors</h1>
@@ -167,7 +198,7 @@
   <div class="badge">Every term defined. Lots of examples. No chemistry background needed.</div>
 </div>
 
-<div class="container">
+<div class="container" id="main-content" role="main">
 
   <div class="intro-banner">
     <strong>How to use this guide:</strong> Every section starts with plain definitions before anything else. Look for the colored boxes — <span style="font-weight:700;color:#14406a;">blue = definition</span>, <span style="font-weight:700;color:#7a5a00;">yellow = key point to memorize</span>, <span style="font-weight:700;color:#2e7d54;">green = real-world example</span>, <span style="font-weight:700;color:var(--accent-dark);">orange = formula</span>.
