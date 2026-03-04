@@ -158,33 +158,25 @@
     td, th { padding:0.4rem 0.55rem; }
   }
 
-/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
-:focus-visible {
-  outline: 3px solid #005fcc !important;
-  outline-offset: 2px !important;
-}
-.tab-btn:focus-visible, .nav-btn:focus-visible {
-  outline: 3px solid #005fcc !important;
-  outline-offset: 2px !important;
-}
-/* ─── Skip link ─── */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  background: #005fcc;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0 0 6px 6px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  z-index: 9999;
-  transition: top 0.2s;
-}
-.skip-link:focus {
-  top: 0;
-}
+/* ─── WCAG 2.1 AA ─── */
+:focus-visible { outline:3px solid var(--accent) !important; outline-offset:3px !important; border-radius:3px; }
+.skip-link { position:absolute; top:-100px; left:1rem; background:var(--accent); color:#fff; padding:0.6rem 1.2rem; border-radius:0 0 6px 6px; font-weight:700; font-size:0.95rem; text-decoration:none; z-index:9999; transition:top 0.2s; }
+.skip-link:focus { top:0; }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:0.01ms !important; transition-duration:0.01ms !important; } }
+/* ─── Worked example ─── */
+.worked { background:#f0faf5; border:1px solid #b2dfc8; border-left:4px solid var(--green); border-radius:0 var(--radius) var(--radius) 0; padding:1.2rem 1.4rem; margin:1.2rem 0; }
+.worked-hd { color:var(--green); font-weight:800; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.6rem; }
+.worked-prompt { color:#444; font-size:0.97rem; margin-bottom:0.9rem; background:#fff; border-radius:8px; padding:0.7rem 1rem; border:1px solid #c8e8d8; line-height:1.7; }
+.step { display:flex; gap:0.75rem; margin-bottom:0.65rem; align-items:flex-start; }
+.sn { background:var(--green); color:#fff; font-weight:800; font-size:0.75rem; min-width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:0.1rem; }
+.st { color:#333; font-size:0.96rem; line-height:1.7; }
+.st strong { color:var(--green); }
+.worked-ans { margin-top:0.9rem; padding:0.75rem 1rem; background:var(--green-light); border-radius:8px; border-left:3px solid var(--green); font-size:0.94rem; color:#1a5430; font-weight:700; }
+/* ─── Disclaimer ─── */
+.disclaimer { max-width:800px; margin:40px auto; padding:20px 30px; background:#fff8e1; border-left:4px solid #f9a825; border-radius:8px; font-size:14px; line-height:1.6; color:#3a3000; }
+.disclaimer-title { font-weight:bold; font-size:15px; margin-bottom:10px; }
+.disclaimer p { margin:0 0 10px 0; }
+.disclaimer p:last-child { margin-bottom:0; }
 
 </style>
 </head>
@@ -198,7 +190,7 @@
   <div class="badge">Every term defined. Lots of examples. No chemistry background needed.</div>
 </div>
 
-<div class="container" id="main-content" role="main">
+<main class="container" id="main-content">
 
   <div class="intro-banner">
     <strong>How to use this guide:</strong> Every section starts with plain definitions before anything else. Look for the colored boxes — <span style="font-weight:700;color:#14406a;">blue = definition</span>, <span style="font-weight:700;color:#7a5a00;">yellow = key point to memorize</span>, <span style="font-weight:700;color:#2e7d54;">green = real-world example</span>, <span style="font-weight:700;color:var(--accent-dark);">orange = formula</span>.
@@ -208,20 +200,20 @@
   <div class="toc">
     <h2>What's in this guide?</h2>
     <div class="toc-list">
-      <a href="#matter"><span class="num">01</span> Matter &amp; Energy</a>
-      <a href="#atoms"><span class="num">02</span> Atoms</a>
-      <a href="#periodic"><span class="num">03</span> The Periodic Table</a>
-      <a href="#bonding"><span class="num">04</span> Chemical Bonding</a>
-      <a href="#naming"><span class="num">05</span> Naming Compounds</a>
-      <a href="#reactions"><span class="num">06</span> Chemical Reactions</a>
-      <a href="#stoich"><span class="num">07</span> The Mole &amp; Stoichiometry</a>
-      <a href="#gases"><span class="num">08</span> Gases</a>
-      <a href="#solutions"><span class="num">09</span> Solutions</a>
-      <a href="#acids"><span class="num">10</span> Acids, Bases &amp; pH</a>
-      <a href="#nuclear"><span class="num">11</span> Nuclear Chemistry</a>
-      <a href="#quiz"><span class="num">Q</span> Practice Quiz</a>
-      <a href="#flashcards"><span class="num">F</span> Flashcards</a>
-      <a href="#sa"><span class="num">SA</span> Short Answer</a>
+      <a href="#matter" onclick="event.preventDefault();document.getElementById('matter').scrollIntoView({behavior:'smooth'})"><span class="num">01</span> Matter &amp; Energy</a>
+      <a href="#atoms" onclick="event.preventDefault();document.getElementById('atoms').scrollIntoView({behavior:'smooth'})"><span class="num">02</span> Atoms</a>
+      <a href="#periodic" onclick="event.preventDefault();document.getElementById('periodic').scrollIntoView({behavior:'smooth'})"><span class="num">03</span> The Periodic Table</a>
+      <a href="#bonding" onclick="event.preventDefault();document.getElementById('bonding').scrollIntoView({behavior:'smooth'})"><span class="num">04</span> Chemical Bonding</a>
+      <a href="#naming" onclick="event.preventDefault();document.getElementById('naming').scrollIntoView({behavior:'smooth'})"><span class="num">05</span> Naming Compounds</a>
+      <a href="#reactions" onclick="event.preventDefault();document.getElementById('reactions').scrollIntoView({behavior:'smooth'})"><span class="num">06</span> Chemical Reactions</a>
+      <a href="#stoich" onclick="event.preventDefault();document.getElementById('stoich').scrollIntoView({behavior:'smooth'})"><span class="num">07</span> The Mole &amp; Stoichiometry</a>
+      <a href="#gases" onclick="event.preventDefault();document.getElementById('gases').scrollIntoView({behavior:'smooth'})"><span class="num">08</span> Gases</a>
+      <a href="#solutions" onclick="event.preventDefault();document.getElementById('solutions').scrollIntoView({behavior:'smooth'})"><span class="num">09</span> Solutions</a>
+      <a href="#acids" onclick="event.preventDefault();document.getElementById('acids').scrollIntoView({behavior:'smooth'})"><span class="num">10</span> Acids, Bases &amp; pH</a>
+      <a href="#nuclear" onclick="event.preventDefault();document.getElementById('nuclear').scrollIntoView({behavior:'smooth'})"><span class="num">11</span> Nuclear Chemistry</a>
+      <a href="#quiz" onclick="event.preventDefault();document.getElementById('quiz').scrollIntoView({behavior:'smooth'})"><span class="num">Q</span> Practice Quiz</a>
+      <a href="#flashcards" onclick="event.preventDefault();document.getElementById('flashcards').scrollIntoView({behavior:'smooth'})"><span class="num">F</span> Flashcards</a>
+      <a href="#sa" onclick="event.preventDefault();document.getElementById('sa').scrollIntoView({behavior:'smooth'})"><span class="num">SA</span> Short Answer</a>
     </div>
   </div>
 
@@ -316,6 +308,25 @@
       <code>Density = Mass ÷ Volume &nbsp;&nbsp;&nbsp; (D = m/V)</code>
       <div class="f-plain">Units: grams per mL (g/mL). Water's density = 1.00 g/mL. If something is denser than 1.00 g/mL, it sinks. If less, it floats. That's why wood floats and rocks sink!</div>
     </div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Density — Does It Float or Sink?</div>
+<div class="worked-prompt">A block of wood has a mass of 45 g and a volume of 60 mL. A rock has a mass of 120 g and a volume of 40 mL. Calculate the density of each, and predict which floats and which sinks in water (water's density = 1.00 g/mL).</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Write the formula:</strong> Density = mass ÷ volume (D = m/V)</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Wood:</strong> D = 45 g ÷ 60 mL = <strong>0.75 g/mL</strong>. This is less than 1.00, so the wood floats.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Rock:</strong> D = 120 g ÷ 40 mL = <strong>3.0 g/mL</strong>. This is greater than 1.00, so the rock sinks.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>The rule:</strong> Density &lt; 1.00 g/mL → floats. Density &gt; 1.00 g/mL → sinks. Density = 1.00 g/mL → hovers in the middle.</span></div>
+<div class="worked-ans">&#10003; Answer: Wood: 0.75 g/mL (floats). Rock: 3.0 g/mL (sinks).</div>
+</div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Temperature Conversion — Three Ways</div>
+<div class="worked-prompt">A patient has a fever of 103°F. A chemistry lab calls for a reaction at 25°C. Convert 103°F to Celsius and Kelvin. Convert 25°C to Fahrenheit and Kelvin.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>103°F → Celsius:</strong> °C = (°F − 32) × 5/9 = (103 − 32) × 5/9 = 71 × 5/9 = 355/9 ≈ <strong>39.4°C</strong>. (Normal body temp is 37°C — 39.4°C is indeed a fever!)</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>39.4°C → Kelvin:</strong> K = °C + 273 = 39.4 + 273 = <strong>312.4 K</strong></span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>25°C → Fahrenheit:</strong> °F = (°C × 9/5) + 32 = (25 × 9/5) + 32 = 45 + 32 = <strong>77°F</strong>. (Room temperature — comfortable!)</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>25°C → Kelvin:</strong> K = 25 + 273 = <strong>298 K</strong></span></div>
+<div class="step"><span class="sn">5</span><span class="st"><strong>Memory trick:</strong> 0°C = 32°F = 273 K (freezing). 100°C = 212°F = 373 K (boiling). These anchors help you check if your answer is reasonable.</span></div>
+<div class="worked-ans">&#10003; Answer: 103°F = 39.4°C = 312.4 K. &nbsp; 25°C = 77°F = 298 K.</div>
+</div>
   </div>
 
   <!-- ====== 02 ATOMS ====== -->
@@ -386,6 +397,15 @@
       <tr><td><strong>Cation</strong></td><td>Positive ion (lost electrons)</td><td>Na⁺, Ca²⁺, Mg²⁺ — metals always form cations</td></tr>
       <tr><td><strong>Anion</strong></td><td>Negative ion (gained electrons)</td><td>Cl⁻, O²⁻, F⁻ — nonmetals form anions</td></tr>
     </table>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Finding Protons, Neutrons, Electrons — and Ion Charges</div>
+<div class="worked-prompt">Use the periodic table to answer: (A) A neutral calcium atom has atomic number 20 and mass number 40. Find its protons, neutrons, and electrons. (B) Calcium loses 2 electrons to form an ion. Write the ion formula and give its charge. (C) Chlorine (atomic number 17, mass number 35) gains 1 electron. Write its ion.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Part A — neutral calcium:</strong> Protons = atomic number = <strong>20</strong>. Neutrons = mass number − protons = 40 − 20 = <strong>20</strong>. Electrons = protons (neutral atom) = <strong>20</strong>.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Part B — calcium ion:</strong> Loses 2 electrons: 20 electrons − 2 = 18 electrons. Charge = protons − electrons = 20 − 18 = <strong>+2</strong>. Ion formula: <strong>Ca²⁺</strong>. (Metals lose electrons → positive ions = cations.)</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Part C — chloride ion:</strong> Gains 1 electron: 17 electrons + 1 = 18 electrons. Charge = 17 − 18 = <strong>−1</strong>. Ion formula: <strong>Cl⁻</strong>. (Nonmetals gain electrons → negative ions = anions.)</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Notice:</strong> Ca²⁺ and Cl⁻ now both have 18 electrons — the same as the noble gas argon (Ar, #18). Atoms gain/lose electrons to reach this stable, full-shell configuration!</span></div>
+<div class="worked-ans">&#10003; Answer: Ca: 20p, 20n, 20e (neutral); Ca²⁺ (lost 2e, charge +2). Cl⁻ (gained 1e, charge −1).</div>
+</div>
   </div>
 
   <!-- ====== 03 PERIODIC TABLE ====== -->
@@ -502,6 +522,16 @@
       <tr><td>3</td><td>1</td><td>Trigonal pyramidal</td><td>NH₃</td><td>Like a tripod</td></tr>
       <tr><td>2</td><td>2</td><td>Bent</td><td>H₂O</td><td>A bent straw</td></tr>
     </table>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Writing Ionic Formulas — The Crisscross Method</div>
+<div class="worked-prompt">Write the correct formulas for: (A) magnesium chloride, (B) aluminum oxide, (C) iron(III) sulfide. Struggling students: the secret is that the TOTAL positive charge must equal the TOTAL negative charge.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>The rule:</strong> Charges must balance to zero. The ion charges 'crisscross' to become the subscripts.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>A — Magnesium chloride:</strong> Mg²⁺ and Cl⁻. Charges: +2 and −1. To balance: need 2 chloride ions to cancel 1 magnesium. Formula: <strong>MgCl₂</strong>. Check: 1×(+2) + 2×(−1) = 0 ✓</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>B — Aluminum oxide:</strong> Al³⁺ and O²⁻. Charges: +3 and −2. Crisscross: the 3 from Al becomes the subscript on O, the 2 from O becomes the subscript on Al → Al₂O₃. Check: 2×(+3) + 3×(−2) = +6 − 6 = 0 ✓. Formula: <strong>Al₂O₃</strong></span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>C — Iron(III) sulfide:</strong> Fe³⁺ (the III tells you +3) and S²⁻ (sulfur gains 2). Same as aluminum oxide: crisscross → Fe₂S₃. Check: 2×(+3) + 3×(−2) = 0 ✓. Formula: <strong>Fe₂S₃</strong></span></div>
+<div class="step"><span class="sn">5</span><span class="st"><strong>Always simplify:</strong> If crisscross gives Ca²⁺ and O²⁻ → Ca₂O₂, simplify to CaO (divide both by 2). The charges already balance with 1:1 ratio.</span></div>
+<div class="worked-ans">&#10003; Answer: MgCl₂, Al₂O₃, Fe₂S₃. Always verify: total positive charge = total negative charge.</div>
+</div>
   </div>
 
   <!-- ====== 05 NAMING ====== -->
@@ -566,6 +596,17 @@
       <tr><td>PO₄³⁻</td><td>Phosphate</td><td>−3</td></tr>
       <tr><td>HCO₃⁻</td><td>Bicarbonate (hydrogen carbonate)</td><td>−1</td></tr>
     </table>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Naming Compounds — Formula to Name AND Name to Formula</div>
+<div class="worked-prompt">Practice both directions. (A) Name these compounds: CaBr₂, N₂O₅, FeSO₄. (B) Write formulas for: sodium phosphate, dinitrogen monoxide, copper(II) nitrate.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>A — CaBr₂:</strong> Ca is a metal (Group 2A), Br is a nonmetal → ionic compound. Name metal: calcium. Name nonmetal with -ide: bromide. No Roman numeral needed (Ca is always +2). Name: <strong>calcium bromide</strong>.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>A — N₂O₅:</strong> Both nonmetals (N and O) → covalent compound, use prefixes. N₂ = dinitrogen. O₅ = pentoxide. Name: <strong>dinitrogen pentoxide</strong>.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>A — FeSO₄:</strong> Fe is a transition metal + SO₄²⁻ (sulfate, a polyatomic ion). SO₄²⁻ has charge −2, so Fe must be +2 to balance. Iron(II) + sulfate. Name: <strong>iron(II) sulfate</strong>.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>B — Sodium phosphate:</strong> Sodium = Na⁺ (+1). Phosphate = PO₄³⁻ (−3). Crisscross: 3 Na⁺ needed to balance 1 PO₄³⁻. Formula: <strong>Na₃PO₄</strong>. Check: 3(+1) + (−3) = 0 ✓</span></div>
+<div class="step"><span class="sn">5</span><span class="st"><strong>B — Dinitrogen monoxide:</strong> Di = 2, mono = 1. Two nitrogen atoms, one oxygen. Formula: <strong>N₂O</strong>. (This is laughing gas!)</span></div>
+<div class="step"><span class="sn">6</span><span class="st"><strong>B — Copper(II) nitrate:</strong> Cu²⁺ and NO₃⁻ (−1). Need 2 nitrate ions to balance Cu²⁺. Formula: <strong>Cu(NO₃)₂</strong>. Parentheses around the polyatomic ion when subscript > 1.</span></div>
+<div class="worked-ans">&#10003; Answer: CaBr₂ = calcium bromide. N₂O₅ = dinitrogen pentoxide. FeSO₄ = iron(II) sulfate. Na₃PO₄, N₂O, Cu(NO₃)₂.</div>
+</div>
   </div>
 
   <!-- ====== 06 REACTIONS ====== -->
@@ -606,6 +647,16 @@
       <p><strong>Double replacement:</strong> Mixing bleach and ammonia — dangerous! The ions swap and form new (toxic) compounds</p>
       <p><strong>Combustion:</strong> Burning gasoline in a car, candles, natural gas on a stove</p>
     </div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Balancing Equations Step by Step</div>
+<div class="worked-prompt">Balance this equation: &nbsp; __ Al + __ O₂ → __ Al₂O₃ &nbsp; (aluminum burning in oxygen). This is the most common type of balancing problem on exams.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Step 1 — Count atoms on each side (unbalanced):</strong> Left: 1 Al, 2 O. &nbsp; Right: 2 Al, 3 O. &nbsp; Not balanced.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Step 2 — Balance Al first (appears in fewer formulas):</strong> Right side has 2 Al. Put a 2 in front of Al on the left: <strong>2</strong> Al + O₂ → Al₂O₃. Now: Left: 2 Al, 2 O. Right: 2 Al, 3 O.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Step 3 — Balance O:</strong> Right has 3 O. Left has 2 O (from O₂). We need 3 O on the left, but O₂ comes in pairs — we can't have 1.5 O₂. Multiply everything by 2: <strong>4</strong> Al + <strong>3</strong> O₂ → <strong>2</strong> Al₂O₃.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Step 4 — Check:</strong> Left: 4 Al, 6 O. Right: 2×2 = 4 Al, 2×3 = 6 O. <strong>Balanced! ✓</strong></span></div>
+<div class="step"><span class="sn">5</span><span class="st"><strong>Golden rule reminder:</strong> ONLY change the big coefficients (numbers in front). NEVER change the small subscripts inside a formula — that would change the compound itself!</span></div>
+<div class="worked-ans">&#10003; Answer: 4 Al + 3 O₂ → 2 Al₂O₃</div>
+</div>
   </div>
 
   <!-- ====== 07 MOLE ====== -->
@@ -663,6 +714,25 @@
       <code>% yield = (actual yield ÷ theoretical yield) × 100</code>
       <div class="f-plain">Theoretical yield is what you calculated you should get. Actual yield is what you measured in the lab. Percent yield is always ≤ 100% because real experiments always have some loss.</div>
     </div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Mole Conversions — Grams ↔ Moles ↔ Particles</div>
+<div class="worked-prompt">How many grams are in 0.50 moles of glucose (C₆H₁₂O₆)? Then: how many molecules is that? (Molar mass of glucose: C=12, H=1, O=16.)</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Step 1 — Find the molar mass of C₆H₁₂O₆:</strong> 6 carbons: 6 × 12 = 72. &nbsp; 12 hydrogens: 12 × 1 = 12. &nbsp; 6 oxygens: 6 × 16 = 96. &nbsp; Total: 72 + 12 + 96 = <strong>180 g/mol</strong>.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Step 2 — Grams = moles × molar mass:</strong> 0.50 mol × 180 g/mol = <strong>90 grams</strong> of glucose.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Step 3 — Molecules = moles × Avogadro's number:</strong> 0.50 mol × 6.022 × 10²³ = <strong>3.011 × 10²³ molecules</strong>.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Reading it out loud:</strong> 0.50 moles of glucose weighs 90 grams and contains about 300 billion trillion molecules. That's why we need the mole — atoms are impossibly small!</span></div>
+<div class="worked-ans">&#10003; Answer: Molar mass = 180 g/mol. 0.50 mol = 90 g = 3.0 × 10²³ molecules.</div>
+</div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Full Stoichiometry — Grams of A to Grams of B</div>
+<div class="worked-prompt">How many grams of water (H₂O) form when 10.0 g of hydrogen gas (H₂) burns completely? Balanced equation: 2 H₂ + O₂ → 2 H₂O. This is the most-tested calculation in introductory chemistry.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Step 1 — Convert grams of H₂ to moles:</strong> Molar mass of H₂ = 2 × 1 = 2 g/mol. &nbsp; Moles of H₂ = 10.0 g ÷ 2 g/mol = <strong>5.0 mol H₂</strong>.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Step 2 — Use the mole ratio from the equation:</strong> The balanced equation says 2 mol H₂ → 2 mol H₂O (ratio is 1:1). So 5.0 mol H₂ produces <strong>5.0 mol H₂O</strong>.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Step 3 — Convert moles of H₂O to grams:</strong> Molar mass of H₂O = 2(1) + 16 = 18 g/mol. &nbsp; Grams = 5.0 mol × 18 g/mol = <strong>90.0 grams of water</strong>.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>The road map (always in this order):</strong> Grams A → <em>(÷ molar mass A)</em> → Moles A → <em>(× mole ratio)</em> → Moles B → <em>(× molar mass B)</em> → Grams B.</span></div>
+<div class="step"><span class="sn">5</span><span class="st"><strong>Limiting reagent check:</strong> If the problem gave you amounts of BOTH H₂ and O₂, you'd convert each to moles of H₂O and pick the SMALLER result. That reactant is the limiting reagent.</span></div>
+<div class="worked-ans">&#10003; Answer: 10.0 g H₂ → 5.0 mol H₂ → 5.0 mol H₂O → 90.0 g H₂O.</div>
+</div>
   </div>
 
   <!-- ====== 08 GASES ====== -->
@@ -689,6 +759,24 @@
       <div class="key-title">ALWAYS Use Kelvin for Gas Law Problems!</div>
       <p>Celsius temperatures can be negative (like −10°C), which would cause math errors in gas law equations. Kelvin is always positive. Convert: K = °C + 273. At STP (standard temperature and pressure = 0°C and 1 atm), 1 mole of any gas occupies <strong>22.4 liters</strong>.</p>
     </div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Boyle's Law — A Syringe Problem</div>
+<div class="worked-prompt">A syringe contains 60 mL of air at a pressure of 1.0 atm. You push the plunger until the pressure is 3.0 atm (temperature stays constant). What is the new volume?</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Identify the law:</strong> Pressure and volume change, temperature constant → Boyle's Law: P₁V₁ = P₂V₂.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>List the knowns:</strong> P₁ = 1.0 atm, V₁ = 60 mL, P₂ = 3.0 atm, V₂ = ?</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Solve for V₂:</strong> V₂ = (P₁ × V₁) ÷ P₂ = (1.0 × 60) ÷ 3.0 = <strong>20 mL</strong>.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Sanity check:</strong> Pressure tripled, so volume should be 1/3 as big. 60 ÷ 3 = 20 mL ✓. When pressure goes UP, volume goes DOWN — inverse relationship.</span></div>
+<div class="worked-ans">&#10003; Answer: V₂ = 20 mL. (Pressure tripled → volume is 1/3 of original.)</div>
+</div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Ideal Gas Law — How Many Moles?</div>
+<div class="worked-prompt">A sealed container holds a gas at 2.0 atm pressure, 5.0 L volume, and 300 K temperature. How many moles of gas are in the container? (R = 0.0821 L·atm/mol·K)</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Write the equation:</strong> PV = nRT. We want n (moles), so rearrange: n = PV ÷ (RT).</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Check units:</strong> P = 2.0 atm ✓, V = 5.0 L ✓, T = 300 K ✓ (already in Kelvin — good!), R = 0.0821 L·atm/mol·K.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Plug in and calculate:</strong> n = (2.0 × 5.0) ÷ (0.0821 × 300) = 10.0 ÷ 24.63 ≈ <strong>0.406 mol</strong></span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Always use Kelvin!</strong> If T had been given as 27°C, you MUST convert first: K = 27 + 273 = 300 K. Forgetting this is the #1 gas law mistake.</span></div>
+<div class="worked-ans">&#10003; Answer: n ≈ 0.41 moles of gas.</div>
+</div>
   </div>
 
   <!-- ====== 09 SOLUTIONS ====== -->
@@ -734,6 +822,24 @@
       <tr><td><strong>Weak electrolyte</strong></td><td>Only partially breaks apart into ions</td><td>Poorly</td><td>Acetic acid (vinegar), ammonia</td></tr>
       <tr><td><strong>Nonelectrolyte</strong></td><td>Stays as whole molecules — no ions</td><td>Not at all</td><td>Sugar, ethanol (alcohol)</td></tr>
     </table>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Calculating Molarity — Making a Solution</div>
+<div class="worked-prompt">A student dissolves 29.25 g of NaCl into enough water to make 500 mL (0.500 L) of solution. What is the molarity? (Molar mass of NaCl = 58.5 g/mol)</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Step 1 — Convert grams to moles:</strong> moles = grams ÷ molar mass = 29.25 ÷ 58.5 = <strong>0.50 mol NaCl</strong>.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Step 2 — Apply the molarity formula:</strong> M = mol solute ÷ L solution = 0.50 mol ÷ 0.500 L = <strong>1.0 M</strong>.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>What does 1.0 M mean?</strong> Every liter of this solution contains 1.0 mole of NaCl. Roughly the same saltiness as seawater (which is about 0.6 M NaCl).</span></div>
+<div class="worked-ans">&#10003; Answer: 1.0 M NaCl solution.</div>
+</div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Dilution — Making a Weaker Solution from a Strong One</div>
+<div class="worked-prompt">A lab has a 6.0 M hydrochloric acid (HCl) stock solution. How much of the stock do you need to make 250 mL of a 0.50 M solution?</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>The concept:</strong> Dilution means adding solvent (water). The moles of solute don't change — you're just spreading them through more liquid. Equation: M₁V₁ = M₂V₂.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>List knowns:</strong> M₁ = 6.0 M (stock), V₁ = ? (what we want), M₂ = 0.50 M (diluted), V₂ = 250 mL.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Solve for V₁:</strong> V₁ = (M₂ × V₂) ÷ M₁ = (0.50 × 250) ÷ 6.0 = 125 ÷ 6.0 ≈ <strong>20.8 mL</strong> of stock acid.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Lab procedure:</strong> Measure 20.8 mL of the stock solution, pour it into a flask, then add water until the total volume reaches 250 mL. ALWAYS add acid TO water, never water to acid.</span></div>
+<div class="step"><span class="sn">5</span><span class="st"><strong>Sanity check:</strong> The diluted solution (0.50 M) is 12× weaker than the stock (6.0 M). Volume increased 250/20.8 ≈ 12× bigger. ✓</span></div>
+<div class="worked-ans">&#10003; Answer: V₁ = 20.8 mL of the 6.0 M stock solution.</div>
+</div>
   </div>
 
   <!-- ====== 10 ACIDS/BASES ====== -->
@@ -800,6 +906,23 @@
       <div class="def-title">Definition: Buffer</div>
       <p>A solution that <strong>resists changes in pH</strong> when small amounts of acid or base are added. Your blood is a buffer — it stays between pH 7.35 and 7.45 no matter what you eat. A buffer contains a weak acid and its conjugate base (or weak base + conjugate acid).</p>
     </div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — pH Calculations — Finding pH from [H⁺] and Vice Versa</div>
+<div class="worked-prompt">Three questions that cover everything the exam asks about pH math: (A) [H⁺] = 0.001 M — find pH. (B) pH = 9 — is this acidic or basic, and what is [H⁺]? (C) Orange juice has [H⁺] = 3.16 × 10⁻⁴ M — find pH.</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>A — [H⁺] = 0.001 M → pH:</strong> pH = −log[H⁺] = −log(0.001) = −log(10⁻³) = −(−3) = <strong>pH 3</strong>. Acidic (below 7). This is about the acidity of vinegar.</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>B — pH 9 → [H⁺] and type:</strong> pH 9 is above 7 → <strong>basic</strong>. [H⁺] = 10⁻pH = 10⁻⁹ = <strong>0.000000001 M</strong>. Very few hydrogen ions — baking soda is around pH 9.</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>C — [H⁺] = 3.16 × 10⁻⁴ M → pH:</strong> pH = −log(3.16 × 10⁻⁴). Use log rule: log(3.16 × 10⁻⁴) = log(3.16) + log(10⁻⁴) ≈ 0.5 + (−4) = −3.5. So pH = −(−3.5) = <strong>pH 3.5</strong>. Between 3 and 4 — makes sense for orange juice!</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>The pattern:</strong> Every power of 10 in [H⁺] is one pH unit. [H⁺] = 10⁻⁵ → pH 5. [H⁺] = 10⁻¹² → pH 12. If the concentration is a 'clean' power of 10, pH = just the exponent (as a positive number).</span></div>
+<div class="worked-ans">&#10003; Answer: A: pH 3. B: basic, [H⁺] = 10⁻⁹ M. C: pH 3.5.</div>
+</div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Neutralization — Will the Result Be Acidic, Basic, or Neutral?</div>
+<div class="worked-prompt">50 mL of 0.10 M HCl is mixed with 50 mL of 0.10 M NaOH. What happens? Then: what if only 25 mL of NaOH is used instead?</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>Part 1 — Equal volumes and concentrations:</strong> Moles of HCl = 0.050 L × 0.10 mol/L = 0.005 mol. Moles of NaOH = 0.050 L × 0.10 mol/L = 0.005 mol. Reaction: HCl + NaOH → NaCl + H₂O. Equal moles react completely — all acid and base consumed. Result: <strong>neutral solution, pH = 7</strong> (just saltwater).</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>Part 2 — Only 25 mL NaOH:</strong> Moles HCl = 0.005 mol. Moles NaOH = 0.025 L × 0.10 = 0.0025 mol. NaOH runs out first (limiting). It neutralizes 0.0025 mol HCl, leaving 0.005 − 0.0025 = <strong>0.0025 mol HCl unreacted</strong>. Total volume = 50 + 25 = 75 mL = 0.075 L. [H⁺] = 0.0025 ÷ 0.075 ≈ 0.033 M. pH = −log(0.033) ≈ <strong>pH 1.5</strong> (still quite acidic).</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>Key principle:</strong> Neutralization is just like stoichiometry — compare moles of acid and moles of base. Whichever is less is the limiting reagent. Excess of either determines the final pH.</span></div>
+<div class="worked-ans">&#10003; Answer: Equal moles → pH 7 (neutral). Half as much base → pH 1.5 (acidic — excess HCl remains).</div>
+</div>
   </div>
 
   <!-- ====== 11 NUCLEAR ====== -->
@@ -865,6 +988,15 @@
       <div class="key-title">Where Does All That Energy Come From? E = mc²</div>
       <p>In both fission and fusion, the products weigh slightly <em>less</em> than the starting materials. That "missing" mass isn't actually missing — it was converted directly into energy, following Einstein's famous equation E = mc². Because the speed of light (c) is so enormous, even a tiny bit of mass converts to a massive amount of energy.</p>
     </div>
+<div class="worked">
+<div class="worked-hd">&#9998; Worked Example — Half-Life — Three Types of Problems</div>
+<div class="worked-prompt">A hospital uses iodine-131 (half-life = 8 days) for thyroid treatment. A patient receives a 40 mCi dose. (A) How much remains after 24 days? (B) How long until only 5 mCi remains? (C) What fraction remains after 5 half-lives?</div>
+<div class="step"><span class="sn">1</span><span class="st"><strong>A — Amount after 24 days:</strong> Number of half-lives = total time ÷ half-life = 24 ÷ 8 = <strong>3 half-lives</strong>. Amount = 40 × (1/2)³ = 40 × 1/8 = <strong>5 mCi</strong>. Quick check: 40 → 20 → 10 → 5 ✓</span></div>
+<div class="step"><span class="sn">2</span><span class="st"><strong>B — Time to reach 5 mCi:</strong> How many times must you halve 40 to get 5? 40 → 20 → 10 → 5 = 3 halvings = <strong>3 half-lives</strong>. Time = 3 × 8 days = <strong>24 days</strong>. (Same answer as part A — makes sense!)</span></div>
+<div class="step"><span class="sn">3</span><span class="st"><strong>C — Fraction after 5 half-lives:</strong> Amount = initial × (1/2)⁵ = (1/2)⁵ = 1/32. So <strong>1/32 (about 3.1%) remains</strong>.</span></div>
+<div class="step"><span class="sn">4</span><span class="st"><strong>Pattern to memorize:</strong> 1 half-life → 1/2 left. 2 → 1/4. 3 → 1/8. 4 → 1/16. 5 → 1/32. Each step: multiply by 1/2 again. Never reaches zero — it just gets smaller and smaller.</span></div>
+<div class="worked-ans">&#10003; Answer: A: 5 mCi after 24 days. B: 24 days. C: 1/32 remains.</div>
+</div>
   </div>
 
   <!-- ====================== QUIZ ====================== -->
@@ -913,17 +1045,17 @@
     <button class="qbtn" onclick="saGradeAll()" style="margin-top:1rem;">Grade All Answers</button>
   </div>
 
-</div><!-- end container -->
+</main><!-- end main -->
 
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span aria-hidden="true">↑</span></button>
 
-  <div style="max-width: 800px; margin: 40px auto; padding: 20px 30px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #555;">
-  <div style="font-weight: bold; font-size: 15px; margin-bottom: 10px;"><span aria-hidden="true">⚠️</span> Important Notice</div>
-  <p style="margin: 0 0 10px 0;">These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
-  <p style="margin: 0 0 10px 0;">While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
-  <p style="margin: 0 0 10px 0;">No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
-  <p style="margin: 0 0 10px 0;">These materials are not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher. All content represents the independent work and ideas of the author.</p>
-  <p style="margin: 0;">This resource is provided "as is" without warranty of any kind, express or implied. The author assumes no liability for any errors or for any actions taken based on the information provided here.</p>
+  <div class="disclaimer" role="note" aria-label="Important disclaimer">
+  <div class="disclaimer-title"><span aria-hidden="true">&#9888;</span> Important Notice</div>
+  <p>These study resources are provided free of charge for educational purposes only. They are intended as supplemental study aids and should not be used as a substitute for your course textbooks, lecture materials, or the guidance of your instructors.</p>
+  <p>While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material that was accurate at the time of writing may no longer reflect current understanding. Always verify important facts, formulas, and concepts against your official course materials.</p>
+  <p>No guarantees are made regarding the completeness, accuracy, or reliability of any information presented on these sites. Use at your own discretion. If you spot an error, we appreciate you letting us know so it can be corrected.</p>
+  <p>These materials are not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher. All content represents the independent work and ideas of the author.</p>
+  <p>This resource is provided "as is" without warranty of any kind, express or implied. The author assumes no liability for any errors or for any actions taken based on the information provided here.</p>
 </div>
 
 <script>
